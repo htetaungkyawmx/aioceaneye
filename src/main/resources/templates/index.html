@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>Unified Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,13 +32,13 @@
             display: block;
             margin-bottom: 5px;
         }
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-        .form-group input:focus {
+        .form-group input:focus, .form-group select:focus {
             border-color: #4a90e2;
             outline: none;
             box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
@@ -55,63 +55,64 @@
         .login-button:hover {
             background-color: #357ab8;
         }
-        .error-message {
-            color: red;
-            font-size: 14px;
+        .message {
+            margin-top: 15px;
             text-align: center;
-            display: none;
-        }
-        .success-message {
-            color: green;
-            font-size: 14px;
-            text-align: center;
-            display: none;
         }
     </style>
 </head>
 <body>
 <div class="login-container">
-    <h2>Admin Login</h2>
+    <h2>Login</h2>
     <form id="loginForm">
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
         </div>
-        <p class="error-message" id="errorMessage">Invalid email or password.</p>
-        <p class="success-message" id="successMessage">Login successful!</p>
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="pilot">Pilot</option>
+                <option value="captain">Captain</option>
+                <option value="guest">Guest</option>
+                <option value="company">Company</option>
+            </select>
+        </div>
         <button type="submit" class="login-button">Login</button>
     </form>
+    <div id="message" class="message"></div>
 </div>
 
 <script>
     const form = document.getElementById('loginForm');
-    const errorMessage = document.getElementById('errorMessage');
-    const successMessage = document.getElementById('successMessage');
+    const messageDiv = document.getElementById('message');
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const role = document.getElementById('role').value;
 
-        const response = await fetch('/org/admin/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-           `` },
-            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password, role }),
         });
 
-        if (response.status === 200) {
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
+        const data = await response.json();
+
+        if (response.ok) {
+            messageDiv.textContent = `${data.message} as ${data.role}`;
+            messageDiv.style.color = 'green';
         } else {
-            errorMessage.style.display = 'block';
-            successMessage.style.display = 'none';
+            messageDiv.textContent = data.message;
+            messageDiv.style.color = 'red';
         }
     });
 </script>

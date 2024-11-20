@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CaptainServiceImpl implements CaptainService {
@@ -17,8 +18,7 @@ public class CaptainServiceImpl implements CaptainService {
 
     @Override
     public Captain save(CaptainDto captainDto) {
-        Captain captain = Captain
-                .builder()
+        Captain captain = Captain.builder()
                 .email(captainDto.getEmail())
                 .password(captainDto.getPassword())
                 .build();
@@ -28,5 +28,21 @@ public class CaptainServiceImpl implements CaptainService {
     @Override
     public List<Captain> findAll() {
         return captainRepository.findAll();
+    }
+
+    @Override
+    public Optional<Captain> findById(int id) {
+        return captainRepository.findById(id);
+    }
+
+    @Override
+    public Captain findByEmail(String email) {
+        return captainRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean validateUser(String email, String password) {
+        Captain captain = captainRepository.findByEmail(email);
+        return captain != null && captain.getPassword().equals(password);
     }
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PilotRepository extends JpaRepository<Pilot, Integer> {
-
+    Pilot findByEmail(String email);
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CaptainRepository extends JpaRepository<Captain, Integer> {
-
+    Captain findByEmail(String email);
 }
