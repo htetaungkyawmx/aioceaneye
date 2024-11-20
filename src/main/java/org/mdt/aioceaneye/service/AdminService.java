@@ -11,4 +11,5 @@ public interface AdminService {
     List<Admin> findAll();
     Optional<Admin> findById(int id);
     Admin findByEmail(String email);
+    boolean validateUser(String email, String password); // Validate login credentials
 }

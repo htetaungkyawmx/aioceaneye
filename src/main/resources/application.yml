@@ -11,7 +11,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
-  spring:
-     security:
-        enabled: false
-
+  logging:
+    level:
+      root: INFO
+      org.mdt.aioceaneye: DEBUG
+    file:
+      name: logs/application.log

@@ -39,4 +39,10 @@ public class AdminServiceImpl implements AdminService {
     public Admin findByEmail(String email) {
         return adminRepository.findByEmail(email);
     }
+
+    @Override
+    public boolean validateUser(String email, String password) {
+        Admin admin = adminRepository.findByEmail(email);
+        return admin != null && admin.getPassword().equals(password);
+    }
 }
