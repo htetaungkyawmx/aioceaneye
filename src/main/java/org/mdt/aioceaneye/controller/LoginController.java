@@ -4,16 +4,14 @@ import org.mdt.aioceaneye.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
     @Autowired private AdminService adminService;
@@ -26,52 +24,48 @@ public class LoginController {
     public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> requestBody) {
         String email = requestBody.get("email");
         String password = requestBody.get("password");
-        String role = requestBody.get("role");
 
-        if (email == null || password == null || role == null) {
-            Map<String, String> response = new HashMap<>();
-            response.put("message", "Missing required parameters");
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        if (email == null || password == null) {
+            return ResponseEntity.badRequest().body(Map.of("message", "Missing required parameters"));
+        }
+
+        // Extract domain from email
+        String domain = email.substring(email.indexOf("@") + 1);
+
+        // Allowed domains
+        Set<String> allowedDomains = Set.of("admin.co.kr", "pilot.co.kr", "captain.co.kr", "guest.co.kr", "company.co.kr");
+        if (!allowedDomains.contains(domain)) {
+            return ResponseEntity.badRequest().body(Map.of("message", "Invalid email domain"));
         }
 
         boolean isValidUser = false;
-        String roleName = "";
 
-        switch (role.toLowerCase()) {
-            case "admin":
+        // Domain-based authentication
+        switch (domain) {
+            case "admin.co.kr":
                 isValidUser = adminService.validateUser(email, password);
-                roleName = "Admin";
                 break;
-            case "pilot":
+            case "pilot.co.kr":
                 isValidUser = pilotService.validateUser(email, password);
-                roleName = "Pilot";
                 break;
-            case "captain":
+            case "captain.co.kr":
                 isValidUser = captainService.validateUser(email, password);
-                roleName = "Captain";
                 break;
-            case "guest":
+            case "guest.co.kr":
                 isValidUser = guestService.validateUser(email, password);
-                roleName = "Guest";
                 break;
-            case "company":
+            case "company.co.kr":
                 isValidUser = companyService.validateUser(email, password);
-                roleName = "Company";
                 break;
-            default:
-                Map<String, String> response = new HashMap<>();
-                response.put("message", "Invalid role");
-                return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
 
-        Map<String, String> response = new HashMap<>();
         if (isValidUser) {
-            response.put("message", "Login successful");
-            response.put("role", roleName);
-            return new ResponseEntity<>(response, HttpStatus.OK);
+            return ResponseEntity.ok(Map.of(
+                    "message", "Login successful",
+                    "redirect", "/" + domain.replace(".co.kr", "") + "-dashboard"
+            ));
         } else {
-            response.put("message", "Invalid credentials");
-            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Invalid credentials"));
         }
     }
 }

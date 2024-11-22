@@ -3,6 +3,7 @@ package org.mdt.aioceaneye.controller;
 import org.mdt.aioceaneye.dto.AdminDto;
 import org.mdt.aioceaneye.model.Admin;
 import org.mdt.aioceaneye.service.AdminService;
+import org.mdt.aioceaneye.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
     @PostMapping("/create")
     public ResponseEntity<Admin> create(@RequestBody AdminDto adminDto) {
         Admin createdAdmin = adminService.save(adminDto);
@@ -29,20 +33,13 @@ public class AdminController {
         return new ResponseEntity<>(admins, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Admin> getById(@PathVariable int id) {
-        return adminService.findById(id)
-                .map(admin -> new ResponseEntity<>(admin, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AdminDto adminDto) {
-        Admin admin = adminService.findByEmail(adminDto.getEmail());
-        if (admin != null && admin.getPassword().equals(adminDto.getPassword())) {
-            return new ResponseEntity<>("Login successful", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Invalid email or password", HttpStatus.UNAUTHORIZED);
+    public ResponseEntity<?> login(@RequestBody AdminDto adminDto) {
+        boolean isValid = adminService.validateUser(adminDto.getEmail(), adminDto.getPassword());
+        if (isValid) {
+            String token = jwtUtil.generateToken(adminDto.getEmail(), "ROLE_ADMIN");
+            return ResponseEntity.ok().body(token);
         }
+        return new ResponseEntity<>("Invalid email or password", HttpStatus.UNAUTHORIZED);
     }
 }

@@ -20,5 +20,4 @@ public class Pilot {
     private int id;
     private String email;
     private String password;
-
 }

@@ -11,5 +11,4 @@ public class AdminDto {
     private int id;
     private String email;
     private String password;
-
 }

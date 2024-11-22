@@ -5,6 +5,7 @@ import org.mdt.aioceaneye.model.Pilot;
 import org.mdt.aioceaneye.repository.PilotRepository;
 import org.mdt.aioceaneye.service.PilotService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +17,14 @@ public class PilotServiceImpl implements PilotService {
     @Autowired
     private PilotRepository pilotRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public Pilot save(PilotDto pilotDto) {
         Pilot pilot = Pilot.builder()
                 .email(pilotDto.getEmail())
-                .password(pilotDto.getPassword())
+                .password(passwordEncoder.encode(pilotDto.getPassword()))
                 .build();
         return pilotRepository.save(pilot);
     }
@@ -43,6 +47,6 @@ public class PilotServiceImpl implements PilotService {
     @Override
     public boolean validateUser(String email, String password) {
         Pilot pilot = pilotRepository.findByEmail(email);
-        return pilot != null && pilot.getPassword().equals(password);
+        return pilot != null && passwordEncoder.matches(password, pilot.getPassword());
     }
 }

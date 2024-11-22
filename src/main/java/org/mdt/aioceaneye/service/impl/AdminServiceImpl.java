@@ -5,10 +5,10 @@ import org.mdt.aioceaneye.model.Admin;
 import org.mdt.aioceaneye.repository.AdminRepository;
 import org.mdt.aioceaneye.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -16,11 +16,14 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminRepository adminRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public Admin save(AdminDto adminDto) {
         Admin admin = Admin.builder()
                 .email(adminDto.getEmail())
-                .password(adminDto.getPassword())
+                .password(passwordEncoder.encode(adminDto.getPassword())) // Hash password here
                 .build();
         return adminRepository.save(admin);
     }
@@ -31,18 +34,10 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Optional<Admin> findById(int id) {
-        return adminRepository.findById(id);
-    }
-
-    @Override
-    public Admin findByEmail(String email) {
-        return adminRepository.findByEmail(email);
-    }
-
-    @Override
     public boolean validateUser(String email, String password) {
         Admin admin = adminRepository.findByEmail(email);
-        return admin != null && admin.getPassword().equals(password);
+        // Use BCrypt's `matches` method to compare hashed and plaintext passwords
+        return admin != null && passwordEncoder.matches(password, admin.getPassword());
     }
+
 }
