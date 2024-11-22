@@ -5,6 +5,7 @@ import org.mdt.aioceaneye.model.Guest;
 import org.mdt.aioceaneye.repository.GuestRepository;
 import org.mdt.aioceaneye.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +17,14 @@ public class GuestServiceImpl implements GuestService {
     @Autowired
     private GuestRepository guestRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder; // Inject the PasswordEncoder
+
     @Override
     public Guest save(GuestDto guestDto) {
         Guest guest = Guest.builder()
                 .email(guestDto.getEmail())
-                .password(guestDto.getPassword())
+                .password(passwordEncoder.encode(guestDto.getPassword())) // Encode password on save
                 .build();
         return guestRepository.save(guest);
     }
@@ -43,6 +47,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public boolean validateUser(String email, String password) {
         Guest guest = guestRepository.findByEmail(email);
-        return guest != null && guest.getPassword().equals(password);
+        // Check if guest exists and validate the password using PasswordEncoder
+        return guest != null && passwordEncoder.matches(password, guest.getPassword());
     }
 }
