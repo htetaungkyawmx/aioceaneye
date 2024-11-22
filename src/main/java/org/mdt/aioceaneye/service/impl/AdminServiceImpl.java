@@ -36,7 +36,6 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public boolean validateUser(String email, String password) {
         Admin admin = adminRepository.findByEmail(email);
-        // Use BCrypt's `matches` method to compare hashed and plaintext passwords
         return admin != null && passwordEncoder.matches(password, admin.getPassword());
     }
 
