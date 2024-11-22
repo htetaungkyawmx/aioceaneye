@@ -5,6 +5,7 @@ import org.mdt.aioceaneye.model.Company;
 import org.mdt.aioceaneye.repository.CompanyRepository;
 import org.mdt.aioceaneye.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Company save(CompanyDto companyDto) {
@@ -43,6 +47,7 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public boolean validateUser(String email, String password) {
         Company company = companyRepository.findByEmail(email);
-        return company != null && company.getPassword().equals(password);
+        return company != null && passwordEncoder.matches(password, company.getPassword());
     }
+
 }
