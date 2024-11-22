@@ -5,6 +5,7 @@ import org.mdt.aioceaneye.model.Captain;
 import org.mdt.aioceaneye.repository.CaptainRepository;
 import org.mdt.aioceaneye.service.CaptainService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public class CaptainServiceImpl implements CaptainService {
 
     @Autowired
     private CaptainRepository captainRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Captain save(CaptainDto captainDto) {
@@ -43,6 +47,6 @@ public class CaptainServiceImpl implements CaptainService {
     @Override
     public boolean validateUser(String email, String password) {
         Captain captain = captainRepository.findByEmail(email);
-        return captain != null && captain.getPassword().equals(password);
+        return captain != null && passwordEncoder.matches(password, captain.getPassword());
     }
 }
