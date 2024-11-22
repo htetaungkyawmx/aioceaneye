@@ -1,3 +1,4 @@
+// Added comments and clarified usage
 package org.mdt.aioceaneye.util;
 
 import io.jsonwebtoken.Claims;
@@ -10,12 +11,13 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = "902cc5c565fd0f22885e701af3bf52e4d91d33a92a17e6f39ba1493f6208f802"; // Replace with a secure key
+    private final String SECRET_KEY = "902cc5c565fd0f22885e701af3bf52e4d91d33a92a17e6f39ba1493f6208f802";
 
+    // Generate JWT with email and role
     public String generateToken(String email, String role) {
         return Jwts.builder()
                 .setSubject(email)
-                .claim("role", role) // Add role to claims
+                .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hour expiration
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
