@@ -25,7 +25,11 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/login", "/org/admin/create").permitAll() // Public endpoints
-                        .requestMatchers("/org/admin/**").hasRole("ADMIN") // Role-specific endpoints
+                        .requestMatchers("/org/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/org/pilot/**").hasRole("PILOT")
+                        .requestMatchers("/org/captain/**").hasRole("CAPTAIN")
+                        .requestMatchers("/org/guest/**").hasRole("GUEST")
+                        .requestMatchers("/org/company/**").hasRole("COMPANY")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
