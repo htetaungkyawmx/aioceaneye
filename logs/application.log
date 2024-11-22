@@ -1,0 +1,531 @@
+2024-11-22T10:52:01.814+06:30  INFO 13804 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 13804 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T10:52:01.815+06:30 DEBUG 13804 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T10:52:01.816+06:30  INFO 13804 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T10:52:02.347+06:30  INFO 13804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T10:52:02.398+06:30  INFO 13804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 5 JPA repository interfaces.
+2024-11-22T10:52:02.788+06:30  INFO 13804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T10:52:02.797+06:30  INFO 13804 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T10:52:02.799+06:30  INFO 13804 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T10:52:02.837+06:30  INFO 13804 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T10:52:02.839+06:30  INFO 13804 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 995 ms
+2024-11-22T10:52:02.874+06:30 DEBUG 13804 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T10:52:02.945+06:30  INFO 13804 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T10:52:02.986+06:30  INFO 13804 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T10:52:03.008+06:30  INFO 13804 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T10:52:03.197+06:30  INFO 13804 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T10:52:03.221+06:30  INFO 13804 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T10:52:03.325+06:30  INFO 13804 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d9d8e46
+2024-11-22T10:52:03.326+06:30  INFO 13804 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T10:52:03.344+06:30  WARN 13804 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T10:52:03.345+06:30  WARN 13804 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T10:52:03.954+06:30  INFO 13804 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T10:52:04.059+06:30  INFO 13804 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T10:52:04.293+06:30  INFO 13804 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T10:52:04.411+06:30  WARN 13804 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T10:52:04.469+06:30  INFO 13804 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T10:52:04.838+06:30  INFO 13804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T10:52:04.845+06:30  INFO 13804 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.373 seconds (process running for 3.845)
+2024-11-22T10:52:10.906+06:30  INFO 13804 --- [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T10:52:10.906+06:30  INFO 13804 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T10:52:10.908+06:30  INFO 13804 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T10:52:11.067+06:30  WARN 13804 --- [http-nio-8080-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-22T11:07:02.369+06:30  INFO 13804 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:07:02.371+06:30  INFO 13804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T11:07:02.375+06:30  INFO 13804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T11:09:38.738+06:30  INFO 20604 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 20604 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T11:09:38.740+06:30 DEBUG 20604 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T11:09:38.741+06:30  INFO 20604 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T11:09:39.357+06:30  INFO 20604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T11:09:39.417+06:30  INFO 20604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2024-11-22T11:09:39.812+06:30  INFO 20604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T11:09:39.821+06:30  INFO 20604 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T11:09:39.822+06:30  INFO 20604 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T11:09:39.861+06:30  INFO 20604 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T11:09:39.861+06:30  INFO 20604 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1081 ms
+2024-11-22T11:09:39.899+06:30 DEBUG 20604 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T11:09:39.970+06:30  INFO 20604 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T11:09:40.004+06:30  INFO 20604 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T11:09:40.027+06:30  INFO 20604 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T11:09:40.222+06:30  INFO 20604 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T11:09:40.246+06:30  INFO 20604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T11:09:40.359+06:30  INFO 20604 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69a76b74
+2024-11-22T11:09:40.360+06:30  INFO 20604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T11:09:40.376+06:30  WARN 20604 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T11:09:40.377+06:30  WARN 20604 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T11:09:41.001+06:30  INFO 20604 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T11:09:41.122+06:30  INFO 20604 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:09:41.365+06:30  INFO 20604 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T11:09:41.477+06:30  WARN 20604 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T11:09:41.538+06:30  INFO 20604 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T11:09:41.933+06:30  INFO 20604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T11:09:41.940+06:30  INFO 20604 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.591 seconds (process running for 4.226)
+2024-11-22T11:09:51.058+06:30  INFO 20604 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T11:09:51.058+06:30  INFO 20604 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T11:09:51.060+06:30  INFO 20604 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-22T11:09:51.232+06:30  WARN 20604 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-22T11:19:42.263+06:30  INFO 20604 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:19:42.266+06:30  INFO 20604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T11:19:42.273+06:30  INFO 20604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T11:27:54.144+06:30  INFO 13836 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 13836 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T11:27:54.146+06:30 DEBUG 13836 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T11:27:54.146+06:30  INFO 13836 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T11:27:54.852+06:30  INFO 13836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T11:27:54.919+06:30  INFO 13836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 5 JPA repository interfaces.
+2024-11-22T11:27:55.334+06:30  INFO 13836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T11:27:55.344+06:30  INFO 13836 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T11:27:55.345+06:30  INFO 13836 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T11:27:55.405+06:30  INFO 13836 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T11:27:55.405+06:30  INFO 13836 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1203 ms
+2024-11-22T11:27:55.444+06:30 DEBUG 13836 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T11:27:55.517+06:30  INFO 13836 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T11:27:55.556+06:30  INFO 13836 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T11:27:55.579+06:30  INFO 13836 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T11:27:55.776+06:30  INFO 13836 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T11:27:55.797+06:30  INFO 13836 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T11:27:55.904+06:30  INFO 13836 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26d7cb0d
+2024-11-22T11:27:55.906+06:30  INFO 13836 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T11:27:55.920+06:30  WARN 13836 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T11:27:55.921+06:30  WARN 13836 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T11:27:56.588+06:30  INFO 13836 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T11:27:56.709+06:30  INFO 13836 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:27:56.926+06:30  INFO 13836 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T11:27:57.040+06:30  WARN 13836 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T11:27:57.105+06:30  INFO 13836 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T11:27:57.576+06:30  INFO 13836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T11:27:57.585+06:30  INFO 13836 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.841 seconds (process running for 4.465)
+2024-11-22T11:28:20.170+06:30  INFO 13836 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T11:28:20.170+06:30  INFO 13836 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T11:28:20.172+06:30  INFO 13836 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-22T11:28:29.282+06:30  WARN 13836 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-22T11:32:22.079+06:30  INFO 13836 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:32:22.081+06:30  INFO 13836 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T11:32:22.086+06:30  INFO 13836 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T11:32:26.635+06:30  INFO 18964 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 18964 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T11:32:26.636+06:30 DEBUG 18964 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T11:32:26.636+06:30  INFO 18964 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T11:32:27.245+06:30  INFO 18964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T11:32:27.297+06:30  INFO 18964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2024-11-22T11:32:27.686+06:30  INFO 18964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T11:32:27.696+06:30  INFO 18964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T11:32:27.697+06:30  INFO 18964 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T11:32:27.738+06:30  INFO 18964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T11:32:27.738+06:30  INFO 18964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1059 ms
+2024-11-22T11:32:27.751+06:30 ERROR 18964 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtFilter': Unsatisfied dependency expressed through field 'userDetailsService': Error creating bean with name 'customUserDetailsService' defined in file [D:\Gwithus\aioceaneye\target\classes\org\mdt\aioceaneye\service\impl\CustomUserDetailsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'securityConfig' defined in file [D:\Gwithus\aioceaneye\target\classes\org\mdt\aioceaneye\config\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtFilter': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-11-22T11:32:27.767+06:30  INFO 18964 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-22T11:32:27.774+06:30  WARN 18964 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-11-22T11:32:27.781+06:30  INFO 18964 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-11-22T11:32:27.794+06:30 ERROR 18964 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  jwtFilter (field private org.springframework.security.core.userdetails.UserDetailsService org.mdt.aioceaneye.util.JwtFilter.userDetailsService)
+↑     ↓
+|  customUserDetailsService defined in file [D:\Gwithus\aioceaneye\target\classes\org\mdt\aioceaneye\service\impl\CustomUserDetailsService.class]
+↑     ↓
+|  securityConfig defined in file [D:\Gwithus\aioceaneye\target\classes\org\mdt\aioceaneye\config\SecurityConfig.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-11-22T11:38:23.214+06:30  INFO 18448 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 18448 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T11:38:23.215+06:30 DEBUG 18448 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T11:38:23.215+06:30  INFO 18448 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T11:38:23.797+06:30  INFO 18448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T11:38:23.852+06:30  INFO 18448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2024-11-22T11:38:24.234+06:30  INFO 18448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T11:38:24.246+06:30  INFO 18448 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T11:38:24.246+06:30  INFO 18448 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T11:38:24.285+06:30  INFO 18448 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T11:38:24.286+06:30  INFO 18448 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1040 ms
+2024-11-22T11:38:24.320+06:30 DEBUG 18448 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T11:38:24.390+06:30  INFO 18448 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T11:38:24.427+06:30  INFO 18448 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T11:38:24.457+06:30  INFO 18448 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T11:38:24.654+06:30  INFO 18448 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T11:38:24.677+06:30  INFO 18448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T11:38:24.791+06:30  INFO 18448 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1626bddf
+2024-11-22T11:38:24.792+06:30  INFO 18448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T11:38:24.808+06:30  WARN 18448 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T11:38:24.809+06:30  WARN 18448 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T11:38:25.436+06:30  INFO 18448 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T11:38:25.535+06:30  INFO 18448 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:38:25.746+06:30  INFO 18448 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T11:38:25.853+06:30  WARN 18448 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T11:38:25.920+06:30  INFO 18448 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T11:38:26.271+06:30  INFO 18448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T11:38:26.277+06:30  INFO 18448 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.407 seconds (process running for 3.977)
+2024-11-22T11:40:12.767+06:30  INFO 18448 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T11:40:12.768+06:30  INFO 18448 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T11:40:12.769+06:30  INFO 18448 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T11:44:59.927+06:30  INFO 18448 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:44:59.929+06:30  INFO 18448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T11:44:59.935+06:30  INFO 18448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T11:45:05.334+06:30  INFO 16660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 16660 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T11:45:05.335+06:30 DEBUG 16660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T11:45:05.335+06:30  INFO 16660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T11:45:05.940+06:30  INFO 16660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T11:45:06.001+06:30  INFO 16660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 5 JPA repository interfaces.
+2024-11-22T11:45:06.365+06:30  INFO 16660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T11:45:06.376+06:30  INFO 16660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T11:45:06.377+06:30  INFO 16660 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T11:45:06.413+06:30  INFO 16660 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T11:45:06.413+06:30  INFO 16660 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1045 ms
+2024-11-22T11:45:06.447+06:30 DEBUG 16660 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T11:45:06.514+06:30  INFO 16660 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T11:45:06.549+06:30  INFO 16660 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T11:45:06.571+06:30  INFO 16660 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T11:45:06.770+06:30  INFO 16660 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T11:45:06.797+06:30  INFO 16660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T11:45:06.903+06:30  INFO 16660 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@224d537d
+2024-11-22T11:45:06.905+06:30  INFO 16660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T11:45:06.919+06:30  WARN 16660 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T11:45:06.920+06:30  WARN 16660 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T11:45:07.523+06:30  INFO 16660 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T11:45:07.621+06:30  INFO 16660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T11:45:07.836+06:30  INFO 16660 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T11:45:07.947+06:30  WARN 16660 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T11:45:08.005+06:30  INFO 16660 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T11:45:08.394+06:30  INFO 16660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T11:45:08.401+06:30  INFO 16660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.377 seconds (process running for 3.842)
+2024-11-22T11:46:10.412+06:30  INFO 16660 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T11:46:10.412+06:30  INFO 16660 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T11:46:10.414+06:30  INFO 16660 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-22T13:21:18.225+06:30  INFO 16660 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:21:18.227+06:30  INFO 16660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T13:21:18.229+06:30  INFO 16660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T13:21:22.446+06:30  INFO 12888 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 12888 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T13:21:22.447+06:30 DEBUG 12888 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T13:21:22.448+06:30  INFO 12888 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T13:21:23.026+06:30  INFO 12888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T13:21:23.078+06:30  INFO 12888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+2024-11-22T13:21:23.452+06:30  INFO 12888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T13:21:23.462+06:30  INFO 12888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T13:21:23.462+06:30  INFO 12888 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T13:21:23.501+06:30  INFO 12888 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T13:21:23.501+06:30  INFO 12888 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1026 ms
+2024-11-22T13:21:23.536+06:30 DEBUG 12888 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T13:21:23.609+06:30  INFO 12888 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T13:21:23.644+06:30  INFO 12888 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T13:21:23.666+06:30  INFO 12888 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T13:21:23.890+06:30  INFO 12888 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T13:21:23.910+06:30  INFO 12888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T13:21:24.023+06:30  INFO 12888 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1626bddf
+2024-11-22T13:21:24.024+06:30  INFO 12888 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T13:21:24.039+06:30  WARN 12888 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T13:21:24.039+06:30  WARN 12888 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T13:21:24.637+06:30  INFO 12888 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T13:21:24.734+06:30  INFO 12888 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:21:24.953+06:30  INFO 12888 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T13:21:25.061+06:30  WARN 12888 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T13:21:25.124+06:30  INFO 12888 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T13:21:25.479+06:30  INFO 12888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T13:21:25.486+06:30  INFO 12888 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.365 seconds (process running for 3.875)
+2024-11-22T13:21:29.203+06:30  INFO 12888 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T13:21:29.204+06:30  INFO 12888 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T13:21:29.205+06:30  INFO 12888 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T13:25:04.294+06:30  INFO 12888 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:25:04.296+06:30  INFO 12888 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T13:25:04.301+06:30  INFO 12888 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T13:25:07.623+06:30  INFO 13592 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 13592 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T13:25:07.625+06:30 DEBUG 13592 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T13:25:07.625+06:30  INFO 13592 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T13:25:08.296+06:30  INFO 13592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T13:25:08.352+06:30  INFO 13592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2024-11-22T13:25:08.745+06:30  INFO 13592 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T13:25:08.756+06:30  INFO 13592 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T13:25:08.756+06:30  INFO 13592 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T13:25:08.801+06:30  INFO 13592 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T13:25:08.801+06:30  INFO 13592 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1124 ms
+2024-11-22T13:25:08.837+06:30 DEBUG 13592 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T13:25:08.911+06:30  INFO 13592 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T13:25:08.945+06:30  INFO 13592 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T13:25:08.971+06:30  INFO 13592 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T13:25:09.166+06:30  INFO 13592 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T13:25:09.187+06:30  INFO 13592 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T13:25:09.312+06:30  INFO 13592 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1169fdfd
+2024-11-22T13:25:09.313+06:30  INFO 13592 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T13:25:09.329+06:30  WARN 13592 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T13:25:09.330+06:30  WARN 13592 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T13:25:09.948+06:30  INFO 13592 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T13:25:10.053+06:30  INFO 13592 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:25:10.281+06:30  INFO 13592 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T13:25:10.394+06:30  WARN 13592 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T13:25:10.452+06:30  INFO 13592 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T13:25:10.820+06:30  INFO 13592 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T13:25:10.827+06:30  INFO 13592 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.615 seconds (process running for 4.3)
+2024-11-22T13:25:14.723+06:30  INFO 13592 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T13:25:14.724+06:30  INFO 13592 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T13:25:14.725+06:30  INFO 13592 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T13:28:44.610+06:30  INFO 13592 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:28:44.611+06:30  INFO 13592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T13:28:44.616+06:30  INFO 13592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T13:28:56.561+06:30  INFO 5624 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 5624 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T13:28:56.562+06:30 DEBUG 5624 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T13:28:56.563+06:30  INFO 5624 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T13:28:57.077+06:30  INFO 5624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T13:28:57.127+06:30  INFO 5624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 5 JPA repository interfaces.
+2024-11-22T13:28:57.508+06:30  INFO 5624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T13:28:57.517+06:30  INFO 5624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T13:28:57.517+06:30  INFO 5624 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T13:28:57.557+06:30  INFO 5624 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T13:28:57.557+06:30  INFO 5624 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2024-11-22T13:28:57.589+06:30 DEBUG 5624 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T13:28:57.669+06:30  INFO 5624 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T13:28:57.716+06:30  INFO 5624 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T13:28:57.743+06:30  INFO 5624 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T13:28:57.944+06:30  INFO 5624 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T13:28:57.966+06:30  INFO 5624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T13:28:58.073+06:30  INFO 5624 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f67181f
+2024-11-22T13:28:58.074+06:30  INFO 5624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T13:28:58.089+06:30  WARN 5624 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T13:28:58.090+06:30  WARN 5624 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T13:28:58.691+06:30  INFO 5624 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T13:28:58.799+06:30  INFO 5624 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:28:59.016+06:30  INFO 5624 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T13:28:59.144+06:30  WARN 5624 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T13:28:59.203+06:30  INFO 5624 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T13:28:59.569+06:30  INFO 5624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T13:28:59.575+06:30  INFO 5624 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.334 seconds (process running for 3.831)
+2024-11-22T13:38:28.208+06:30  INFO 5624 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:38:28.210+06:30  INFO 5624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T13:38:28.220+06:30  INFO 5624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T13:38:39.431+06:30  INFO 6660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 6660 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T13:38:39.432+06:30 DEBUG 6660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T13:38:39.433+06:30  INFO 6660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T13:38:40.085+06:30  INFO 6660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T13:38:40.139+06:30  INFO 6660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2024-11-22T13:38:40.567+06:30  INFO 6660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T13:38:40.576+06:30  INFO 6660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T13:38:40.577+06:30  INFO 6660 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T13:38:40.619+06:30  INFO 6660 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T13:38:40.620+06:30  INFO 6660 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1137 ms
+2024-11-22T13:38:40.656+06:30 DEBUG 6660 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T13:38:40.734+06:30  INFO 6660 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T13:38:40.784+06:30  INFO 6660 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T13:38:40.810+06:30  INFO 6660 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T13:38:41.015+06:30  INFO 6660 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T13:38:41.038+06:30  INFO 6660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T13:38:41.147+06:30  INFO 6660 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1169fdfd
+2024-11-22T13:38:41.150+06:30  INFO 6660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T13:38:41.165+06:30  WARN 6660 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T13:38:41.166+06:30  WARN 6660 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T13:38:41.840+06:30  INFO 6660 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T13:38:41.961+06:30  INFO 6660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:38:42.212+06:30  INFO 6660 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T13:38:42.329+06:30  WARN 6660 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T13:38:42.389+06:30  INFO 6660 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T13:38:42.779+06:30  INFO 6660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T13:38:42.788+06:30  INFO 6660 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.799 seconds (process running for 4.44)
+2024-11-22T13:40:48.582+06:30  INFO 6660 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T13:40:48.582+06:30  INFO 6660 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T13:40:48.583+06:30  INFO 6660 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T13:45:31.455+06:30  INFO 6660 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:45:31.457+06:30  INFO 6660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T13:45:31.467+06:30  INFO 6660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T13:45:34.538+06:30  INFO 21260 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 21260 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T13:45:34.539+06:30 DEBUG 21260 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T13:45:34.540+06:30  INFO 21260 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T13:45:35.212+06:30  INFO 21260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T13:45:35.269+06:30  INFO 21260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2024-11-22T13:45:35.679+06:30  INFO 21260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T13:45:35.689+06:30  INFO 21260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T13:45:35.689+06:30  INFO 21260 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T13:45:35.730+06:30  INFO 21260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T13:45:35.731+06:30  INFO 21260 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1146 ms
+2024-11-22T13:45:35.771+06:30 DEBUG 21260 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T13:45:35.853+06:30  INFO 21260 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T13:45:35.889+06:30  INFO 21260 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T13:45:35.936+06:30  INFO 21260 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T13:45:36.144+06:30  INFO 21260 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T13:45:36.165+06:30  INFO 21260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T13:45:36.278+06:30  INFO 21260 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a9df5
+2024-11-22T13:45:36.279+06:30  INFO 21260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T13:45:36.296+06:30  WARN 21260 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T13:45:36.297+06:30  WARN 21260 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T13:45:36.991+06:30  INFO 21260 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T13:45:37.105+06:30  INFO 21260 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:45:37.365+06:30  INFO 21260 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T13:45:37.491+06:30  WARN 21260 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T13:45:37.550+06:30  INFO 21260 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T13:45:37.956+06:30  INFO 21260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T13:45:37.964+06:30  INFO 21260 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.885 seconds (process running for 4.562)
+2024-11-22T13:45:44.862+06:30  INFO 21260 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T13:45:44.863+06:30  INFO 21260 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T13:45:44.864+06:30  INFO 21260 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T13:49:53.472+06:30  INFO 21260 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:49:53.475+06:30  INFO 21260 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T13:49:53.483+06:30  INFO 21260 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T13:56:20.471+06:30  INFO 14668 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 14668 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T13:56:20.472+06:30 DEBUG 14668 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T13:56:20.473+06:30  INFO 14668 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T13:56:21.089+06:30  INFO 14668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T13:56:21.165+06:30  INFO 14668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2024-11-22T13:56:21.597+06:30  INFO 14668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T13:56:21.607+06:30  INFO 14668 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T13:56:21.607+06:30  INFO 14668 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T13:56:21.646+06:30  INFO 14668 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T13:56:21.646+06:30  INFO 14668 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1131 ms
+2024-11-22T13:56:21.691+06:30 DEBUG 14668 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T13:56:21.764+06:30  INFO 14668 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T13:56:21.815+06:30  INFO 14668 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T13:56:21.838+06:30  INFO 14668 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T13:56:22.042+06:30  INFO 14668 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T13:56:22.067+06:30  INFO 14668 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T13:56:22.182+06:30  INFO 14668 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63d0e8d
+2024-11-22T13:56:22.184+06:30  INFO 14668 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T13:56:22.203+06:30  WARN 14668 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T13:56:22.204+06:30  WARN 14668 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T13:56:22.849+06:30  INFO 14668 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T13:56:22.951+06:30  INFO 14668 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T13:56:23.190+06:30  INFO 14668 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T13:56:23.325+06:30  WARN 14668 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T13:56:23.383+06:30  INFO 14668 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T13:56:23.767+06:30  INFO 14668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T13:56:23.773+06:30  INFO 14668 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.724 seconds (process running for 4.357)
+2024-11-22T13:56:51.165+06:30  INFO 14668 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T13:56:51.166+06:30  INFO 14668 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T13:56:51.167+06:30  INFO 14668 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T14:07:29.309+06:30  INFO 14668 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:07:29.310+06:30  INFO 14668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T14:07:29.315+06:30  INFO 14668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T14:07:32.827+06:30  INFO 20920 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 20920 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T14:07:32.828+06:30 DEBUG 20920 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T14:07:32.829+06:30  INFO 20920 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T14:07:33.366+06:30  INFO 20920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T14:07:33.419+06:30  INFO 20920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2024-11-22T14:07:33.806+06:30  INFO 20920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T14:07:33.815+06:30  INFO 20920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T14:07:33.815+06:30  INFO 20920 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T14:07:33.854+06:30  INFO 20920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T14:07:33.855+06:30  INFO 20920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 996 ms
+2024-11-22T14:07:33.886+06:30 DEBUG 20920 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T14:07:33.974+06:30  INFO 20920 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T14:07:34.021+06:30  INFO 20920 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T14:07:34.046+06:30  INFO 20920 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T14:07:34.246+06:30  INFO 20920 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T14:07:34.267+06:30  INFO 20920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T14:07:34.373+06:30  INFO 20920 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48f4f03e
+2024-11-22T14:07:34.374+06:30  INFO 20920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T14:07:34.389+06:30  WARN 20920 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T14:07:34.389+06:30  WARN 20920 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T14:07:35.009+06:30  INFO 20920 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T14:07:35.118+06:30  INFO 20920 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:07:35.341+06:30  INFO 20920 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T14:07:35.482+06:30  WARN 20920 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T14:07:35.547+06:30  INFO 20920 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T14:07:35.932+06:30  INFO 20920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T14:07:35.939+06:30  INFO 20920 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.434 seconds (process running for 3.896)
+2024-11-22T14:08:07.048+06:30  INFO 20920 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T14:08:07.049+06:30  INFO 20920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T14:08:07.049+06:30  INFO 20920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-22T14:16:25.003+06:30  INFO 20920 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:16:25.005+06:30  INFO 20920 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T14:16:25.010+06:30  INFO 20920 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T14:16:30.857+06:30  INFO 22812 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 22812 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T14:16:30.859+06:30 DEBUG 22812 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T14:16:30.860+06:30  INFO 22812 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T14:16:31.485+06:30  INFO 22812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T14:16:31.536+06:30  INFO 22812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+2024-11-22T14:16:31.911+06:30  INFO 22812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T14:16:31.921+06:30  INFO 22812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T14:16:31.922+06:30  INFO 22812 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T14:16:31.962+06:30  INFO 22812 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T14:16:31.963+06:30  INFO 22812 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1042 ms
+2024-11-22T14:16:32.006+06:30 DEBUG 22812 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T14:16:32.076+06:30  INFO 22812 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T14:16:32.126+06:30  INFO 22812 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T14:16:32.150+06:30  INFO 22812 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T14:16:32.350+06:30  INFO 22812 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T14:16:32.375+06:30  INFO 22812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T14:16:32.487+06:30  INFO 22812 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48f4f03e
+2024-11-22T14:16:32.489+06:30  INFO 22812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T14:16:32.503+06:30  WARN 22812 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T14:16:32.504+06:30  WARN 22812 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T14:16:33.149+06:30  INFO 22812 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T14:16:33.247+06:30  INFO 22812 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:16:33.484+06:30  INFO 22812 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T14:16:33.603+06:30  WARN 22812 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T14:16:33.661+06:30  INFO 22812 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T14:16:34.041+06:30  INFO 22812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T14:16:34.047+06:30  INFO 22812 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.632 seconds (process running for 4.283)
+2024-11-22T14:16:41.843+06:30  INFO 22812 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T14:16:41.843+06:30  INFO 22812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T14:16:41.844+06:30  INFO 22812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T14:39:03.909+06:30  INFO 22812 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:39:03.912+06:30  INFO 22812 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T14:39:03.921+06:30  INFO 22812 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T14:39:06.894+06:30  INFO 21240 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 21240 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T14:39:06.897+06:30 DEBUG 21240 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T14:39:06.897+06:30  INFO 21240 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T14:39:07.523+06:30  INFO 21240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T14:39:07.577+06:30  INFO 21240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2024-11-22T14:39:08.032+06:30  INFO 21240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T14:39:08.043+06:30  INFO 21240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T14:39:08.043+06:30  INFO 21240 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T14:39:08.090+06:30  INFO 21240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T14:39:08.091+06:30  INFO 21240 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1151 ms
+2024-11-22T14:39:08.126+06:30 DEBUG 21240 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T14:39:08.204+06:30  INFO 21240 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T14:39:08.270+06:30  INFO 21240 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T14:39:08.296+06:30  INFO 21240 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T14:39:08.508+06:30  INFO 21240 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T14:39:08.531+06:30  INFO 21240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T14:39:08.646+06:30  INFO 21240 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4331be30
+2024-11-22T14:39:08.648+06:30  INFO 21240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T14:39:08.665+06:30  WARN 21240 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T14:39:08.666+06:30  WARN 21240 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T14:39:09.324+06:30  INFO 21240 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T14:39:09.458+06:30  INFO 21240 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:39:09.736+06:30  INFO 21240 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T14:39:09.865+06:30  WARN 21240 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T14:39:09.920+06:30  INFO 21240 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T14:39:10.348+06:30  INFO 21240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T14:39:10.355+06:30  INFO 21240 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 3.909 seconds (process running for 4.621)
+2024-11-22T14:40:06.454+06:30  INFO 21240 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T14:40:06.455+06:30  INFO 21240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T14:40:06.456+06:30  INFO 21240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-22T14:42:20.410+06:30  INFO 21240 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:42:20.412+06:30  INFO 21240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-22T14:42:20.418+06:30  INFO 21240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-22T14:53:16.840+06:30  INFO 17740 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Starting AioceaneyeApplication using Java 21.0.3 with PID 17740 (D:\Gwithus\aioceaneye\target\classes started by ThinkBook in D:\Gwithus\aioceaneye)
+2024-11-22T14:53:16.842+06:30 DEBUG 17740 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-22T14:53:16.844+06:30  INFO 17740 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-22T14:53:18.030+06:30  INFO 17740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-22T14:53:18.141+06:30  INFO 17740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 5 JPA repository interfaces.
+2024-11-22T14:53:18.776+06:30  INFO 17740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-22T14:53:18.791+06:30  INFO 17740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-22T14:53:18.792+06:30  INFO 17740 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-22T14:53:18.853+06:30  INFO 17740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-22T14:53:18.853+06:30  INFO 17740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1934 ms
+2024-11-22T14:53:18.989+06:30  INFO 17740 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-22T14:53:19.046+06:30  INFO 17740 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-22T14:53:19.098+06:30  INFO 17740 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-22T14:53:19.423+06:30  INFO 17740 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-22T14:53:19.454+06:30  INFO 17740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-22T14:53:19.610+06:30  INFO 17740 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@395eb363
+2024-11-22T14:53:19.612+06:30  INFO 17740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-22T14:53:19.636+06:30  WARN 17740 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-22T14:53:19.637+06:30  WARN 17740 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-22T14:53:20.591+06:30  INFO 17740 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-22T14:53:20.725+06:30  INFO 17740 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-22T14:53:21.082+06:30 DEBUG 17740 --- [main] org.mdt.aioceaneye.util.JwtFilter        : Filter 'jwtFilter' configured for use
+2024-11-22T14:53:21.125+06:30  INFO 17740 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-22T14:53:21.236+06:30  WARN 17740 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-22T14:53:21.316+06:30  INFO 17740 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-22T14:53:21.784+06:30  INFO 17740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-22T14:53:21.794+06:30  INFO 17740 --- [main] o.mdt.aioceaneye.AioceaneyeApplication   : Started AioceaneyeApplication in 5.795 seconds (process running for 7.009)
+2024-11-22T14:53:26.023+06:30  INFO 17740 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-22T14:53:26.024+06:30  INFO 17740 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-22T14:53:26.026+06:30  INFO 17740 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
