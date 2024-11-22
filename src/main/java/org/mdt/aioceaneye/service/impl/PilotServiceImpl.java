@@ -49,4 +49,5 @@ public class PilotServiceImpl implements PilotService {
         Pilot pilot = pilotRepository.findByEmail(email);
         return pilot != null && passwordEncoder.matches(password, pilot.getPassword());
     }
+
 }
