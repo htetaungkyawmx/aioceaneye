@@ -25,12 +25,12 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/login", "/org/admin/create").permitAll() // Public endpoints
-                        .requestMatchers("/org/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/org/pilot/**").hasRole("PILOT")
-                        .requestMatchers("/org/captain/**").hasRole("CAPTAIN")
-                        .requestMatchers("/org/guest/**").hasRole("GUEST")
-                        .requestMatchers("/org/company/**").hasRole("COMPANY")
-                        .anyRequest().authenticated()
+                        .requestMatchers("/org/admin/**").hasRole("ADMIN") // Requires ROLE_ADMIN
+                        .requestMatchers("/org/pilot/**").hasRole("PILOT") // Requires ROLE_PILOT
+                        .requestMatchers("/org/captain/**").hasRole("CAPTAIN") // Requires ROLE_CAPTAIN
+                        .requestMatchers("/org/guest/**").hasRole("GUEST") // Requires ROLE_GUEST
+                        .requestMatchers("/org/company/**").hasRole("COMPANY") // Requires ROLE_COMPANY
+                        .anyRequest().authenticated() // All other requests require authentication
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
