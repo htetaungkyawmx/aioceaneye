@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WorkSchedules {
+public class WorkSchedules extends AbstractEntity {
 
     @Id
     private String workedCode;

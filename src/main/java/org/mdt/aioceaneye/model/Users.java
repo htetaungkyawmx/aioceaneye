@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Users {
+public class Users extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +34,5 @@ public class Users {
 
     private Integer checkedEmail;
 
-    private LocalDateTime createdAt;
 
-    private String createdUser;
-
-    private LocalDateTime modifiedAt;
-
-    private String modifiedUser;
 }

@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WorkTransfer {
+public class WorkTransfer extends AbstractEntity {
 
     @Id
     private String docNo;
