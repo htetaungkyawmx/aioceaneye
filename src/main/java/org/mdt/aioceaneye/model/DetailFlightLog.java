@@ -18,11 +18,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DetailFlightLog {
+public class DetailFlightLog extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int detailFlightId;
 
     private LocalDateTime flightAt;
 
