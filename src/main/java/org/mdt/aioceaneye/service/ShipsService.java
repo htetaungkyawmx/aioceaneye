@@ -11,4 +11,8 @@ public interface ShipsService {
     public ResponseEntity<String> registerShip(ShipRegisterForm form);
 
     public List<ShipInfo> getAllShipInfos();
+
+    public ResponseEntity<String> deleteShip(long shipId);
+
+    public ResponseEntity<String> updateShip(ShipRegisterForm form, long shipId);
 }

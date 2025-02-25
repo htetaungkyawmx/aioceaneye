@@ -12,7 +12,8 @@ import java.util.List;
 public interface ShipRepo extends JpaRepository<Ship,Long> {
 
     @Query("""
-    select s.shipId, s.shipLogo, s.shipName, s.shipCountry, s.shipImono, s.shipMmsi, s.shipCallSign from Ship s
+    select new org.mdt.aioceaneye.dto.ship.ShipInfo(s.shipId, s.shipLogo, s.shipName, s.shipCountry, s.shipImono, s.shipMmsi, s.shipCallSign, s.yield) 
+    from Ship s
 """)
     List<ShipInfo> findAllShipInfos();
 }
