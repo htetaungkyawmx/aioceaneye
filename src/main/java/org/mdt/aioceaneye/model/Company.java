@@ -1,10 +1,12 @@
 package org.mdt.aioceaneye.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -12,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "companies_t")
 public class Company extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +31,4 @@ public class Company extends AbstractEntity {
     private String coLogo;
     private String coRegisterFile;
     private Date established_year;
-
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<Ship> ships;
-
-    public void addShip(Ship ship) {
-        this.ships.add(ship);
-    }
 }

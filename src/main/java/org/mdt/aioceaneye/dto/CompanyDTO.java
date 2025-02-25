@@ -9,7 +9,7 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompanysDTO {
+public class CompanyDTO {
     private Long coId;
     private String coName;
     private String coCeoName;
