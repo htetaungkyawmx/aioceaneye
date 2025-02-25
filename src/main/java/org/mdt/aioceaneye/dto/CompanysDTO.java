@@ -1,24 +1,27 @@
 package org.mdt.aioceaneye.dto;
 
-import java.sql.Blob;
-import java.sql.Timestamp;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CompanysDTO {
-
-    private long co_id;
-    private String co_name;
-    private String co_ceoname;
-    private String co_registerno;
-    private String co_tel;
-    private String co_fax;
-    private String co_address;
-    private String co_username;
-    private String co_phone;
-    private Blob co_logo;
-    private Blob co_registerfile;
-    private Timestamp created_at;
-    private String created_user;
-    private Timestamp modified_at;
-    private  String modified_user;
-
+    private Long coId;
+    private String coName;
+    private String coCeoName;
+    private String coRegisterNo;
+    private String coTel;
+    private String coFax;
+    private String coAddress;
+    private String coUserName;
+    private String coUserEmail;
+    private String coUserPhone;
+    private String coCountry;
+    private String coLogo;
+    private String coRegisterFile;
+    private Date established_year;
 }

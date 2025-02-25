@@ -12,8 +12,8 @@ public record ShipRegisterForm(
         String shipMmsi,
         String shipPhone,
         String shipEmail,
-        String shipLogo
-
+        String shipLogo,
+        Double yield
 ) {
 
     public static Ship toEntity(ShipRegisterForm form) {
@@ -27,6 +27,7 @@ public record ShipRegisterForm(
                 .shipPhone(form.shipPhone)
                 .shipEmail(form.shipEmail)
                 .shipLogo(form.shipLogo)
+                .yield(form.yield)
                 .build();
     }
 }
