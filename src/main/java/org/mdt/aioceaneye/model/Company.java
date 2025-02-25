@@ -1,14 +1,12 @@
 package org.mdt.aioceaneye.model;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-import java.sql.Blob;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -16,41 +14,21 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-public class Companys extends AbstractEntity {
-
+public class Company extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long coId;
-
     private String coName;
-
     private String coCeoName;
-
     private String coRegisterNo;
-
     private String coTel;
-
     private String coFax;
-
     private String coAddress;
-
     private String coUserName;
-
     private String coUserEmail;
-
     private String coUserPhone;
-
-    private Blob coLogo;
-
-    private Blob coRegisterFile;
-
-    private LocalDateTime createdAt;
-
-    private String createdUser;
-
-    private LocalDateTime updatedAt;
-
-    private String updatedUser;
-
-
+    private String coCountry;
+    private String coLogo;
+    private String coRegisterFile;
+    private Date established_year;
 }

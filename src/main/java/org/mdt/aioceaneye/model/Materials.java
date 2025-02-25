@@ -2,6 +2,7 @@ package org.mdt.aioceaneye.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 public class Materials extends AbstractEntity {
 
+    @Id
     private String materialSerialNo;
 
     private String materialItem;

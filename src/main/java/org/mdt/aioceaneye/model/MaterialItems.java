@@ -1,6 +1,7 @@
 package org.mdt.aioceaneye.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Entity
@@ -11,6 +12,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true)
 public class MaterialItems extends AbstractEntity {
 
+    @Id
     private String materialId;
 
     private String materialItem;
