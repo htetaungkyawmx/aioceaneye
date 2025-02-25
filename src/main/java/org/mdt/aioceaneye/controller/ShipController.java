@@ -11,28 +11,30 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/aioceaneye/vessels/")
+@RequestMapping("/mdt/vessel")
 public class ShipController {
 
     private final ShipsService shipsService;
 
-    @PostMapping("/register")
+    @PostMapping
     public ResponseEntity<String> registerShip(@RequestBody ShipRegisterForm form) {
         return shipsService.registerShip(form);
     }
 
-    @GetMapping("/infos")
+    @GetMapping
     public List<ShipInfo> getAllShipInfos() {
         return shipsService.getAllShipInfos();
     }
 
-    @PutMapping("/update/{shipId}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> updateShip(@RequestBody ShipRegisterForm form, @PathVariable Long shipId) {
         return shipsService.updateShip(form, shipId);
     }
 
-    @DeleteMapping("/delete/{shipId}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteShip(@PathVariable Long shipId) {
         return shipsService.deleteShip(shipId);
     }
+
 }
+

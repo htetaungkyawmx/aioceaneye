@@ -1,9 +1,6 @@
 package org.mdt.aioceaneye.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
@@ -54,8 +51,12 @@ public class Ship extends AbstractEntity {
 
     private String shipEmail;
 
-//    private Companys company;
+    @ManyToOne
+    private Company company;
 
-
+    public void setCompany(Company company) {
+        this.company = company;
+        company.addShip(this);
+    }
 
 }

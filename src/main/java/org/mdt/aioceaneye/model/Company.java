@@ -1,9 +1,6 @@
 package org.mdt.aioceaneye.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
@@ -14,6 +11,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
+@Table(name = "Company_t")
 public class Company extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +29,7 @@ public class Company extends AbstractEntity {
     private String coLogo;
     private String coRegisterFile;
     private Date established_year;
+
+    public void addShip(Ship ship) {
+    }
 }

@@ -8,11 +8,13 @@ import java.util.List;
 
 public interface ShipsService {
 
-    public ResponseEntity<String> registerShip(ShipRegisterForm form);
+    ResponseEntity<String> registerShip(ShipRegisterForm form);
 
-    public List<ShipInfo> getAllShipInfos();
+    List<ShipInfo> getAllShipInfos();
 
-    public ResponseEntity<String> deleteShip(long shipId);
+    ResponseEntity<String> deleteShip(long shipId);
 
-    public ResponseEntity<String> updateShip(ShipRegisterForm form, long shipId);
+    ResponseEntity<String> updateShip(ShipRegisterForm form, long shipId);
+
+    ResponseEntity<String> setCompany(long coId, long shipId);
 }
