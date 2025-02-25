@@ -9,7 +9,8 @@ public record ShipInfo(
         String shipCountry,
         String shipImono,
         String shipMmsi,
-        String shipCallSign
+        String shipCallSign,
+        Double yield
 ) {
 
     public static ShipInfo toDto(Ship ship) {
@@ -20,7 +21,8 @@ public record ShipInfo(
                 ship.getShipCountry(),
                 ship.getShipImono(),
                 ship.getShipMmsi(),
-                ship.getShipCallSign()
+                ship.getShipCallSign(),
+                ship.getYield()
         );
     }
 }

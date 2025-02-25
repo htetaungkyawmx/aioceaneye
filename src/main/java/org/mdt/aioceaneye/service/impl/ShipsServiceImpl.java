@@ -28,4 +28,33 @@ public class ShipsServiceImpl implements ShipsService {
     public List<ShipInfo> getAllShipInfos() {
         return shipRepo.findAllShipInfos();
     }
+
+    @Override
+    public ResponseEntity<String> deleteShip(long shipId) {
+        if(shipRepo.existsById(shipId)) {
+            shipRepo.deleteById(shipId);
+            return ResponseEntity.status(HttpStatus.OK).body("Ship: " + shipId + " deleted successfully");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ship: " + shipId + " not found");
+    }
+
+    @Override
+    public ResponseEntity<String> updateShip(ShipRegisterForm form, long shipId) {
+        if(shipRepo.existsById(shipId)) {
+            var ship = shipRepo.findById(shipId).get();
+            ship.setShipName(form.shipName());
+            ship.setShipCallSign(form.shipCallSign());
+            ship.setShipCountry(form.shipCountry());
+            ship.setShipOfficeNo(form.shipOfficeNo());
+            ship.setShipImono(form.shipImono());
+            ship.setShipMmsi(form.shipMmsi());
+            ship.setShipPhone(form.shipPhone());
+            ship.setShipEmail(form.shipEmail());
+            ship.setShipLogo(form.shipLogo());
+            ship.setYield(form.yield());
+            shipRepo.save(ship);
+            return ResponseEntity.status(HttpStatus.OK).body("Ship: " + ship.getShipName() + " updated successfully");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ship: " + shipId + " not found");
+    }
 }
