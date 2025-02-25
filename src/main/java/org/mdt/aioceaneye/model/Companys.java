@@ -15,7 +15,6 @@ import java.sql.Date;
 @Builder
 @EqualsAndHashCode(callSuper = true)
 public class Companys extends AbstractEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long coId;
@@ -29,7 +28,7 @@ public class Companys extends AbstractEntity {
     private String coUserEmail;
     private String coUserPhone;
     private String coCountry;
-    private byte[] coLogo;
-    private byte[] coRegisterFile;
+    private String coLogo;
+    private String coRegisterFile;
     private Date established_year;
 }
