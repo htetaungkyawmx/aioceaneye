@@ -1,10 +1,10 @@
 package org.mdt.aioceaneye.repository;
 
-import org.mdt.aioceaneye.model.Companys;
+import org.mdt.aioceaneye.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CompanysRepo extends JpaRepository<Companys, Long> {
+public interface CompanyRepo extends JpaRepository<Company, Long> {
 
 }

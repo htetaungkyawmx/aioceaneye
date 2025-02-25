@@ -1,15 +1,22 @@
-package org.mdt.aioceaneye.dto;
+package org.mdt.aioceaneye.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
 
 import java.sql.Date;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompanysDTO {
+@Builder
+@EqualsAndHashCode(callSuper = true)
+public class Company extends AbstractEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long coId;
     private String coName;
     private String coCeoName;
