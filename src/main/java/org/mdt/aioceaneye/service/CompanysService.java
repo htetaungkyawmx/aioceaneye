@@ -1,20 +1,21 @@
 package org.mdt.aioceaneye.service;
 
 import org.mdt.aioceaneye.dto.CompanysDTO;
-import org.mdt.aioceaneye.model.Companys;
+import org.mdt.aioceaneye.model.Company;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CompanysService {
 
-    Companys save(CompanysDTO companysDTO);
+    Company save(CompanysDTO companysDTO);
 
-    Optional<Companys> update(long coId, CompanysDTO companysDTO);
+    Optional<Company> update(long coId, CompanysDTO companysDTO);
 
-    List<Companys> findAll();
+    List<Company> findAll();
 
-    Optional<Companys> findById(long coId);
+    Optional<Company> findById(long coId);
 
     void delete(long coId);
+
 }

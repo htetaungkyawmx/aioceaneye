@@ -5,7 +5,7 @@ import org.mdt.aioceaneye.model.Ship;
 public record ShipRegisterForm(
         String shipName,
         String shipCallSign,
-//        String company,
+        long coId,
         String shipCountry,
         String shipOfficeNo,
         String shipImono,

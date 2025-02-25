@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.mdt.aioceaneye.dto.ship.ShipInfo;
 import org.mdt.aioceaneye.dto.ship.ShipRegisterForm;
 import org.mdt.aioceaneye.model.Ship;
+import org.mdt.aioceaneye.repository.CompanysRepo;
 import org.mdt.aioceaneye.repository.ShipRepo;
 import org.mdt.aioceaneye.service.ShipsService;
 import org.springframework.http.HttpStatus;
@@ -17,11 +18,16 @@ import java.util.List;
 public class ShipsServiceImpl implements ShipsService {
 
     private final ShipRepo shipRepo;
+    private final CompanysRepo companyRepo;
 
     @Override
     public ResponseEntity<String> registerShip(ShipRegisterForm form) {
-        Ship ship = shipRepo.save(ShipRegisterForm.toEntity(form));
-        return ResponseEntity.status(HttpStatus.CREATED).body("Ship: " + ship.getShipName() + " registered successfully");
+        var company = companyRepo.findById(form.coId()).get();
+        var ship = ShipRegisterForm.toEntity(form);
+        ship.setCompany(company);
+        shipRepo.save(ship);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("Ship: " + ship.getShipName() + " for Company: " + ship.getCompany().getCoName() + " registered successfully");
     }
 
     @Override
@@ -56,5 +62,24 @@ public class ShipsServiceImpl implements ShipsService {
             return ResponseEntity.status(HttpStatus.OK).body("Ship: " + ship.getShipName() + " updated successfully");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ship: " + shipId + " not found");
+    }
+
+    @Override
+    public ResponseEntity<String> setCompany(long coId, long shipId) {
+        if(!shipRepo.existsById(shipId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ship: " + shipId + " not found");
+        }
+        if(!companyRepo.existsById(coId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Company: " + coId + " not found");
+        }
+        var ship = shipRepo.findById(shipId).get();
+        var company = companyRepo.findById(coId).get();
+        ship.setCompany(company);
+
+        shipRepo.save(ship);
+        companyRepo.save(company);
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body("Ship: " + ship.getShipName() + " is set to Company : " + ship.getCompany().getCoName());
     }
 }

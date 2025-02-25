@@ -1,7 +1,7 @@
 package org.mdt.aioceaneye.service.impl;
 
 import org.mdt.aioceaneye.dto.CompanysDTO;
-import org.mdt.aioceaneye.model.Companys;
+import org.mdt.aioceaneye.model.Company;
 import org.mdt.aioceaneye.repository.CompanysRepo;
 import org.mdt.aioceaneye.service.CompanysService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,8 @@ public class CompanysServiceImpl implements CompanysService {
     private CompanysRepo companysRepo;
 
     @Override
-    public Companys save(CompanysDTO companysDTO) {
-        Companys companys = Companys.builder()
+    public Company save(CompanysDTO companysDTO) {
+        Company company = Company.builder()
                 .coName(companysDTO.getCoName())
                 .coCeoName(companysDTO.getCoCeoName())
                 .coRegisterNo(companysDTO.getCoRegisterNo())
@@ -33,11 +33,11 @@ public class CompanysServiceImpl implements CompanysService {
                 .coRegisterFile(companysDTO.getCoRegisterFile())
                 .established_year(companysDTO.getEstablished_year())
                 .build();
-        return companysRepo.save(companys);
+        return companysRepo.save(company);
     }
 
     @Override
-    public Optional<Companys> update(long coId, CompanysDTO companysDTO) {
+    public Optional<Company> update(long coId, CompanysDTO companysDTO) {
         return companysRepo.findById(coId).map(existingCompany -> {
             existingCompany.setCoName(companysDTO.getCoName());
             existingCompany.setCoCeoName(companysDTO.getCoCeoName());
@@ -57,12 +57,12 @@ public class CompanysServiceImpl implements CompanysService {
     }
 
     @Override
-    public List<Companys> findAll() {
+    public List<Company> findAll() {
         return companysRepo.findAll();
     }
 
     @Override
-    public Optional<Companys> findById(long coId) {
+    public Optional<Company> findById(long coId) {
         return companysRepo.findById(coId);
     }
 
