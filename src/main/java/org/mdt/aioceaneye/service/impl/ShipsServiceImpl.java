@@ -3,8 +3,7 @@ package org.mdt.aioceaneye.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.mdt.aioceaneye.dto.ship.ShipInfo;
 import org.mdt.aioceaneye.dto.ship.ShipRegisterForm;
-import org.mdt.aioceaneye.model.Ship;
-import org.mdt.aioceaneye.repository.CompanysRepo;
+import org.mdt.aioceaneye.repository.CompanyRepo;
 import org.mdt.aioceaneye.repository.ShipRepo;
 import org.mdt.aioceaneye.service.ShipsService;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ import java.util.List;
 public class ShipsServiceImpl implements ShipsService {
 
     private final ShipRepo shipRepo;
-    private final CompanysRepo companyRepo;
+    private final CompanyRepo companyRepo;
 
     @Override
     public ResponseEntity<String> registerShip(ShipRegisterForm form) {
