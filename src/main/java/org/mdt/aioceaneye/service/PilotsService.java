@@ -14,4 +14,5 @@ public interface PilotsService {
     List<PilotInfo> getAllPilotInfos();
 
     PilotDetailInfo getPilotDetailInfoById(String pilotId);
+
 }

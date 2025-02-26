@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "Drone_Kind_t")
+@Table(name = "drone_kind_t")
 public class DroneKind extends AbstractEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

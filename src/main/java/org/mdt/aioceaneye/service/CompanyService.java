@@ -1,20 +1,22 @@
 package org.mdt.aioceaneye.service;
 
-import org.mdt.aioceaneye.dto.CompanyDTO;
+import org.mdt.aioceaneye.dto.company.CompanyDto;
+import org.mdt.aioceaneye.dto.company.CompanyInfo;
 import org.mdt.aioceaneye.model.Company;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CompanyService {
 
-    Company save(CompanyDTO companyDTO);
+    ResponseEntity<String> register(CompanyDto form);
 
-    Optional<Company> update(long coId, CompanyDTO companyDTO);
+    ResponseEntity<String> update(long coId, CompanyDto form);
 
-    List<Company> findAll();
+    List<CompanyInfo> getAllCompanyInfos();
 
-    Optional<Company> findById(long coId);
+    CompanyDto getCompanyDtoById(long id);
 
-    void delete(long coId);
+    ResponseEntity<String> delete(long coId);
 }

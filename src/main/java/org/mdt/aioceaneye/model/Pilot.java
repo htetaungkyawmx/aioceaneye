@@ -35,7 +35,13 @@ public class Pilot extends AbstractEntity {
 
     private PilotStatus pilotStatus;
 
-    @OneToOne(mappedBy = "pilot")
+    @OneToOne(mappedBy = "pilot", cascade = CascadeType.ALL, orphanRemoval = true)
     private PilotWorking pilotWorking;
+
+
+    public void setWorking(PilotWorking pilotWorking) {
+        this.pilotWorking = pilotWorking;
+        pilotWorking.setPilot(this);
+    }
 
 }
