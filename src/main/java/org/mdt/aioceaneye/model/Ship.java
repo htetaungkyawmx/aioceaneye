@@ -11,6 +11,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
+@Table(name = "ship_t")
 public class Ship extends AbstractEntity {
 
     @Id

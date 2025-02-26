@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -11,7 +12,6 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "Company_t")
 public class Company extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +30,10 @@ public class Company extends AbstractEntity {
     private String coRegisterFile;
     private Date established_year;
 
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Ship> ships;
+
     public void addShip(Ship ship) {
+        this.ships.add(ship);
     }
 }
