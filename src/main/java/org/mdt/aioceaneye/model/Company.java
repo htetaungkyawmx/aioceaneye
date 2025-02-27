@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
+@Table(name = "companies_t")
 public class Company extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +28,8 @@ public class Company extends AbstractEntity {
     private String coUserPhone;
     private String coCountry;
     private String coLogo;
+    private Integer coEmployees;
+    private String homePage;
     private String coRegisterFile;
     private Date established_year;
 
