@@ -1,15 +1,15 @@
 package org.mdt.aioceaneye.service;
 
-import org.mdt.aioceaneye.dto.DroneKindDTO;
-import org.mdt.aioceaneye.model.DroneKind;
+import org.mdt.aioceaneye.dto.drone.DroneKindCreateForm;
+import org.mdt.aioceaneye.dto.drone.DroneKindDto;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DroneKindService {
-    DroneKind save(DroneKindDTO droneKindDTO);
-    Optional<DroneKind> update(int kind_id, DroneKindDTO droneKindDTO);
-    List<DroneKind> findAll();
-    Optional<DroneKind> findById(int kind_id);
-    void delete(int kind_id);
+
+    ResponseEntity<String> createDroneKind(DroneKindCreateForm form);
+
+    List<DroneKindDto> getAllDroneKinds();
+
 }

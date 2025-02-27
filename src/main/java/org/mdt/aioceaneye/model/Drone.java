@@ -15,14 +15,17 @@ public class Drone extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long droneId;
     private String serial_no;
-    private String version_no;
-    private String modelName;
-    private String size;
-    private String max_radius;
-    private String max_speed;
-    private String flight_time;
-    private String max_altitude;
-    private String max_endurance;
-    private String drone_img;
-    //private int kind_id;
+    private String droneImg;
+
+    @ManyToOne
+    @JoinColumn(name = "model_no")
+    private DroneModelInfo modelInfo;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "drone")
+    private DroneEquippedMaterials droneEquippedMaterials;
+
+    public void setModelInfo(DroneModelInfo modelInfo) {
+        this.modelInfo = modelInfo;
+        modelInfo.addDrone(this);
+    }
 }
