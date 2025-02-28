@@ -11,8 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "model_info_t")
-public class DroneModelInfo extends AbstractEntity{
+@Table(name = "model_t")
+public class DroneModel extends AbstractEntity{
 
     @Id
     private String modelNo;
@@ -28,15 +28,14 @@ public class DroneModelInfo extends AbstractEntity{
     @JoinColumn(name = "kind_id")
     private DroneKind kind;
 
-    @OneToMany(mappedBy = "modelInfo", cascade = CascadeType.ALL)
-    private List<Drone> drones;
-
-    public void addDrone(Drone drone) {
-        this.drones.add(drone);
-    }
+    @OneToMany(mappedBy = "droneModel")
+    private List<Drone> droneList;
 
     public void setDroneKind(DroneKind kind) {
         this.kind = kind;
-        kind.addModelInfo(this);
+    }
+
+    public void addDrone(Drone drone) {
+        droneList.add(drone);
     }
 }

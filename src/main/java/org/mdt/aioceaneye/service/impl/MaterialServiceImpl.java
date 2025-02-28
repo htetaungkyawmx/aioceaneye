@@ -6,6 +6,10 @@ import org.mdt.aioceaneye.dto.material.MaterialDetailsInfo;
 import org.mdt.aioceaneye.dto.material.MaterialInfo;
 import org.mdt.aioceaneye.dto.material.MaterialLogDto;
 import org.mdt.aioceaneye.dto.material.MaterialRegisterForm;
+import org.mdt.aioceaneye.model.MaterialLog;
+import org.mdt.aioceaneye.model.MaterialLogPk;
+import org.mdt.aioceaneye.repository.DroneRepo;
+import org.mdt.aioceaneye.repository.MaterialLogRepo;
 import org.mdt.aioceaneye.repository.MaterialRepo;
 import org.mdt.aioceaneye.repository.MaterialTypeRepo;
 import org.mdt.aioceaneye.service.MaterialService;
@@ -13,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -22,6 +27,9 @@ public class MaterialServiceImpl implements MaterialService {
 
     private final MaterialRepo materialRepo;
     private final MaterialTypeRepo materialTypeRepo;
+    private final MaterialLogRepo materialLogRepo;
+    private final DroneRepo droneRepo;
+
 
     @Override
     public ResponseEntity<String> registerMaterial(MaterialRegisterForm form) {
@@ -58,7 +66,22 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public MaterialLogDto createMaterialLog(int droneId, String materialSerialNo) {
+    public MaterialLog createMaterialLog(long droneId, String materialSerialNo) {
+        if(!materialLogRepo.existsBySerialNumber(materialSerialNo)) {
+            var material = materialRepo.findById(materialSerialNo).get();
+            var drone = droneRepo.findById(droneId).get();
+            var materialLog = new MaterialLog();
+            var pk = new MaterialLogPk();
+            materialLog.setMaterialLogPk(pk);
+
+            materialLog.setMaterial(material);
+            materialLog.setDrone(drone);
+            materialLog.getMaterialLogPk().setMaterialAt(LocalDateTime.now());
+            materialLog.setEstimateRestTime(material.getLifetime());
+            materialLog.setMaterialRestTime(material.getLifetime());
+
+            return materialLog;
+        }
         return null;
     }
 }

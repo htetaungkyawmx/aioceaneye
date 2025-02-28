@@ -1,6 +1,6 @@
 package org.mdt.aioceaneye.dto.drone;
 
-import org.mdt.aioceaneye.model.DroneModelInfo;
+import org.mdt.aioceaneye.model.DroneModel;
 
 public record DroneModelInfoCreateForm(
         String modelNo,
@@ -14,8 +14,8 @@ public record DroneModelInfoCreateForm(
         int kindId
 ) {
 
-    public static DroneModelInfo toEntity(DroneModelInfoCreateForm model) {
-        return DroneModelInfo.builder()
+    public static DroneModel toEntity(DroneModelInfoCreateForm model) {
+        return DroneModel.builder()
                 .modelNo(model.modelNo)
                 .manufacturer(model.manufacturer)
                 .size(model.size)

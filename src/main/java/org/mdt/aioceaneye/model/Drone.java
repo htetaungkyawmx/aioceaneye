@@ -18,14 +18,15 @@ public class Drone extends AbstractEntity {
     private String droneImg;
 
     @ManyToOne
-    @JoinColumn(name = "model_no")
-    private DroneModelInfo modelInfo;
+    @JoinColumn(name = "drone_model_no")
+    private DroneModel droneModel;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "drone")
-    private DroneEquippedMaterials droneEquippedMaterials;
+    @OneToOne(mappedBy = "drone", cascade = CascadeType.ALL, orphanRemoval = true)
+    private DroneEquippedMaterials equippedMaterials;
 
-    public void setModelInfo(DroneModelInfo modelInfo) {
-        this.modelInfo = modelInfo;
-        modelInfo.addDrone(this);
+    public void setDroneModel(DroneModel droneModel) {
+        this.droneModel = droneModel;
+        droneModel.addDrone(this);
     }
+
 }

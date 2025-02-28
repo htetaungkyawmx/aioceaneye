@@ -8,9 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "materiallog_t")
-public class MaterialLog extends AbstractEntity {
+public class MaterialLog  {
 
     @EmbeddedId
     private MaterialLogPk materialLogPk;

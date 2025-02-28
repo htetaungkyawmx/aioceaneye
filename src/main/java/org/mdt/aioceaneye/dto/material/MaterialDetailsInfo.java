@@ -12,10 +12,10 @@ public record MaterialDetailsInfo(
         String buyPlace,
         String serialNumber,
         Date stockDate,
-        String lifetime,
-        String usageTime,
+        double lifetime,
+        double usageTime,
         String useNo,
-        String replaceTime
+        double replaceTime
 ) {
 
     public static  MaterialDetailsInfo toDto(Material material) {

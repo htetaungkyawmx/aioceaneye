@@ -4,6 +4,7 @@ import org.mdt.aioceaneye.dto.material.MaterialDetailsInfo;
 import org.mdt.aioceaneye.dto.material.MaterialInfo;
 import org.mdt.aioceaneye.dto.material.MaterialLogDto;
 import org.mdt.aioceaneye.dto.material.MaterialRegisterForm;
+import org.mdt.aioceaneye.model.MaterialLog;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -20,5 +21,5 @@ public interface MaterialService {
 
     ResponseEntity<String> deleteMaterial(String serialNo);
 
-    MaterialLogDto createMaterialLog(int droneId, String materialSerialNo);
+    MaterialLog createMaterialLog(long droneId, String materialSerialNo);
 }

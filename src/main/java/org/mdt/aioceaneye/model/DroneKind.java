@@ -22,9 +22,9 @@ public class DroneKind extends AbstractEntity{
     private String application;
 
     @OneToMany(mappedBy = "kind")
-    private List<DroneModelInfo> modelInfos;
+    private List<DroneModel> models;
 
-    public void addModelInfo(DroneModelInfo modelInfo){
-        this.modelInfos.add(modelInfo);
+    public void addModel(DroneModel model){
+        this.models.add(model);
     }
 }
