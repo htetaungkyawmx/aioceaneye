@@ -24,11 +24,15 @@ public class MaterialLog extends AbstractEntity {
 //  Will connect to doc later
     private String docNo;
 
-    private int estimateRestTime;
+    private double estimateRestTime;
 
-    private int useTime;
+    private double useTime;
 
-    private int materialRestTime;
+    private double materialRestTime;
+
+    @OneToOne
+    @JoinColumn(name = "drone_id")
+    private Drone drone;
 
 
 

@@ -30,15 +30,15 @@ public class Material extends AbstractEntity {
 
     private Date stockDate;
 
-    private String lifetime;
+    private double lifetime;
 
-    private String usageTime;
+    private double usageTime;
+
+    private double replaceTime;
 
     private String useNo;
 
     private boolean useStatus = false;
-
-    private String replaceTime;
 
     private String materialImg;
 

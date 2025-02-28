@@ -24,7 +24,7 @@ public class DroneModelInfo extends AbstractEntity{
     private int flightTime;
     private int maxAltitude;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "kind_id")
     private DroneKind kind;
 
@@ -33,5 +33,10 @@ public class DroneModelInfo extends AbstractEntity{
 
     public void addDrone(Drone drone) {
         this.drones.add(drone);
+    }
+
+    public void setDroneKind(DroneKind kind) {
+        this.kind = kind;
+        kind.addModelInfo(this);
     }
 }

@@ -39,6 +39,24 @@ public class DroneServiceImpl implements DroneService {
         var droneEquippedMaterials = new DroneEquippedMaterials();
         droneEquippedMaterials.setDroneId(drone.getDroneId());
 
+        equipMaterials(form, droneEquippedMaterials);
+
+        droneRepo.save(drone);
+        
+        return ResponseEntity.status(HttpStatus.CREATED).body("Drone: " + drone.getSerial_no() + " registered successfully");
+    }
+
+    @Override
+    public List<DroneDto> getAllDrones() {
+        return droneRepo.findAll().stream().map(DroneDto::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public DroneDto getDroneById(long id) {
+        return droneRepo.findById(id).map(DroneDto::toDto).orElse(null);
+    }
+
+    private void equipMaterials(DroneRegisterForm form, DroneEquippedMaterials droneEquippedMaterials) {
         var fc = materialRepo.findById(form.fcSN()).get();
         var gps = materialRepo.findById(form.gpsSN()).get();
         var camera = materialRepo.findById(form.cameraSN()).get();
@@ -86,22 +104,6 @@ public class DroneServiceImpl implements DroneService {
         droneEquippedMaterials.setProp4(prop4);
         droneEquippedMaterials.setFixesc(fixEsc);
         droneEquippedMaterials.setFixProp(fixProp);
-
-
-        droneRepo.save(drone);
-
-
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("Drone: " + drone.getSerial_no() + " registered successfully");
     }
 
-    @Override
-    public List<DroneDto> getAllDrones() {
-        return droneRepo.findAll().stream().map(DroneDto::toDto).collect(Collectors.toList());
-    }
-
-    @Override
-    public DroneDto getDroneById(long id) {
-        return droneRepo.findById(id).map(DroneDto::toDto).orElse(null);
-    }
 }

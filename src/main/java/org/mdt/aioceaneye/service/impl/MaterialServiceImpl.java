@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.mdt.aioceaneye.dto.material.MaterialDetailsInfo;
 import org.mdt.aioceaneye.dto.material.MaterialInfo;
+import org.mdt.aioceaneye.dto.material.MaterialLogDto;
 import org.mdt.aioceaneye.dto.material.MaterialRegisterForm;
 import org.mdt.aioceaneye.repository.MaterialRepo;
 import org.mdt.aioceaneye.repository.MaterialTypeRepo;
@@ -54,5 +55,10 @@ public class MaterialServiceImpl implements MaterialService {
         }
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Material : " + serialNo + " not found");
+    }
+
+    @Override
+    public MaterialLogDto createMaterialLog(int droneId, String materialSerialNo) {
+        return null;
     }
 }

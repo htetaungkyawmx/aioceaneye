@@ -21,7 +21,10 @@ public class DroneKind extends AbstractEntity{
     private String characteristics;
     private String application;
 
-    @OneToOne(mappedBy = "kind")
-    private DroneModelInfo modelInfo;
+    @OneToMany(mappedBy = "kind")
+    private List<DroneModelInfo> modelInfos;
 
+    public void addModelInfo(DroneModelInfo modelInfo){
+        this.modelInfos.add(modelInfo);
+    }
 }

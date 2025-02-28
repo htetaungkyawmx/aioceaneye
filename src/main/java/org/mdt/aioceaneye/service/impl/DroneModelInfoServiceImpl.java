@@ -24,9 +24,9 @@ public class DroneModelInfoServiceImpl implements DroneModelInfoService {
     public ResponseEntity<String> createDroneModelInfo(DroneModelInfoCreateForm form) {
         var modelInfo = DroneModelInfoCreateForm.toEntity(form);
         var kind = droneKindRepo.findById(form.kindId()).get();
-        modelInfo.setKind(kind);
+        modelInfo.setDroneKind(kind);
         droneModelInfoRepo.save(modelInfo);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Drone Model:  created successfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Drone Model: " + modelInfo.getModelNo() + " created successfully");
     }
 
     @Override

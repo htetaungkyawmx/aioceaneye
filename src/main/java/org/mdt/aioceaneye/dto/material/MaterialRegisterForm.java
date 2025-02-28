@@ -12,10 +12,10 @@ public record MaterialRegisterForm(
         String materialStorageArea,
         String buyPlace,
         Date stockDate,
-        String lifetime,
-        String usageTime,
+        double lifetime,
+        double usageTime,
         String useNo,
-        String replaceTime,
+        double replaceTime,
         String materialImg,
         int typeId
 ) {
@@ -35,5 +35,8 @@ public record MaterialRegisterForm(
                 .replaceTime(form.replaceTime())
                 .materialImg(form.materialImg())
                 .build();
+    }
+
+    public static record MaterialLogDto() {
     }
 }
