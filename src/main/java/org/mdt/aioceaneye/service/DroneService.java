@@ -1,6 +1,6 @@
 package org.mdt.aioceaneye.service;
 
-import org.mdt.aioceaneye.dto.drone.DroneDto;
+import org.mdt.aioceaneye.dto.drone.DroneInfo;
 import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
 import org.springframework.http.ResponseEntity;
 
@@ -10,7 +10,7 @@ public interface DroneService {
 
     ResponseEntity<String> registerDrone(DroneRegisterForm form);
 
-    List<DroneDto> getAllDrones();
+    List<DroneInfo> getAllDrones();
 
-    DroneDto getDroneById(long id);
+    DroneInfo getDroneById(long id);
 }

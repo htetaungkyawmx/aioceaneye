@@ -8,8 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "drone_equipped_materials_t")
-public class DroneEquippedMaterials {
+@Table(name = "drone_loadout_t")
+public class DroneLoadout {
 
     @Id
     private Long droneId;
@@ -18,7 +18,7 @@ public class DroneEquippedMaterials {
     @OneToOne
     private Drone drone;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fc_serialno")
     private Material fc;
 

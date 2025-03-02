@@ -5,8 +5,8 @@ import org.mdt.aioceaneye.model.Drone;
 public record DroneRegisterForm(
         String droneImg,
         String modelName,
-        String serialNo
-//        String fcSN
+        String serialNo,
+        String fcSN
 //        String gpsSN,
 //        String cameraSN,
 //        String rcSN,

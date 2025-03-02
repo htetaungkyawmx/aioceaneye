@@ -5,20 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.mdt.aioceaneye.model.DroneKind;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class DroneKindCreateForm {
-
-    private String kind;
-    private String characteristics;
-    private String application;
+public record DroneKindCreateForm(
+        String kind,
+        String characteristics,
+        String application
+) {
 
     public static DroneKind toEntity(DroneKindCreateForm form) {
         return DroneKind.builder()
-                .kind(form.getKind())
-                .characteristics(form.getCharacteristics())
-                .application(form.getApplication())
+                .kind(form.kind())
+                .characteristics(form.characteristics())
+                .application(form.application())
                 .build();
     }
 

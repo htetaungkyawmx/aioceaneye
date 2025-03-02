@@ -22,11 +22,16 @@ public class Drone extends AbstractEntity {
     private DroneModel droneModel;
 
     @OneToOne(mappedBy = "drone", cascade = CascadeType.ALL, orphanRemoval = true)
-    private DroneEquippedMaterials equippedMaterials;
+    private DroneLoadout droneLoadout;
 
     public void setDroneModel(DroneModel droneModel) {
         this.droneModel = droneModel;
         droneModel.addDrone(this);
+    }
+
+    public void setDroneLoadout(DroneLoadout loadout) {
+        this.droneLoadout = loadout;
+        loadout.setDrone(this);
     }
 
 }

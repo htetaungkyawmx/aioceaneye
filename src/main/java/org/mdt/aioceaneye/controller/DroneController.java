@@ -1,15 +1,12 @@
 package org.mdt.aioceaneye.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.mdt.aioceaneye.dto.drone.DroneDto;
+import org.mdt.aioceaneye.dto.drone.DroneInfo;
 import org.mdt.aioceaneye.dto.drone.DroneModelInfoCreateForm;
 import org.mdt.aioceaneye.dto.drone.DroneModelInfoDto;
 import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
-import org.mdt.aioceaneye.model.Drone;
 import org.mdt.aioceaneye.service.DroneModelInfoService;
 import org.mdt.aioceaneye.service.DroneService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,12 +26,12 @@ public class DroneController {
     }
 
     @GetMapping
-    List<DroneDto> getAllDrones() {
+    List<DroneInfo> getAllDrones() {
         return droneService.getAllDrones();
     }
 
     @GetMapping("/{droneId}")
-    DroneDto getDroneById(@PathVariable("droneId") long droneId) {
+    DroneInfo getDroneById(@PathVariable("droneId") long droneId) {
         return droneService.getDroneById(droneId);
     }
 
