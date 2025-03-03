@@ -5,6 +5,7 @@ import org.mdt.aioceaneye.dto.drone.DroneInfo;
 import org.mdt.aioceaneye.dto.drone.DroneModelInfoCreateForm;
 import org.mdt.aioceaneye.dto.drone.DroneModelInfoDto;
 import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
+import org.mdt.aioceaneye.model.Drone;
 import org.mdt.aioceaneye.service.DroneModelInfoService;
 import org.mdt.aioceaneye.service.DroneService;
 import org.springframework.http.ResponseEntity;

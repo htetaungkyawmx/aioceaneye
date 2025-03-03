@@ -3,6 +3,9 @@ package org.mdt.aioceaneye.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -21,17 +24,19 @@ public class Drone extends AbstractEntity {
     @JoinColumn(name = "drone_model_no")
     private DroneModel droneModel;
 
-    @OneToOne(mappedBy = "drone", cascade = CascadeType.ALL, orphanRemoval = true)
-    private DroneLoadout droneLoadout;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "drone_loadout_t")
+    @MapKeyColumn(name = "material_type")
+    private Map<String, Material> materials;
 
     public void setDroneModel(DroneModel droneModel) {
         this.droneModel = droneModel;
         droneModel.addDrone(this);
     }
 
-    public void setDroneLoadout(DroneLoadout loadout) {
-        this.droneLoadout = loadout;
-        loadout.setDrone(this);
+    public void equipMaterial(Material material) {
+       materials.put(material.getType().getTypeName(), material);
     }
 
 }

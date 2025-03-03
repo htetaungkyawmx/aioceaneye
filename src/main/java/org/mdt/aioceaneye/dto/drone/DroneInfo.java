@@ -5,7 +5,8 @@ public record DroneInfo(
         String droneImg,
         String modelName,
         long droneId,
-        String fc
+        String fc,
+        String gps
 ) {
 
 }

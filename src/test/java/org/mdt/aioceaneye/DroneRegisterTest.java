@@ -22,12 +22,6 @@ public class DroneRegisterTest {
     private DroneModelInfoService droneModelInfoService;
 
     @Test
-    public void testRegisterDrone(){
-        var form = new DroneRegisterForm("image", "DM1001", "MDT1001");
-        droneService.registerDrone(form);
-    }
-
-    @Test
     public void findModelByModelName(){
         var model = droneModelInfoService.getDroneModelInfoByModelNo("DM1004");
         Assertions.assertNotNull(model);

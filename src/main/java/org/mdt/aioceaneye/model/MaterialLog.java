@@ -18,6 +18,8 @@ public class MaterialLog  {
     @ManyToOne
     private Material material;
 
+    private String useDroneSerialNo;
+
     private int repairCount;
 
 //  Will connect to doc later
@@ -28,11 +30,5 @@ public class MaterialLog  {
     private double useTime;
 
     private double materialRestTime;
-
-    @OneToOne
-    @JoinColumn(name = "drone_id")
-    private Drone drone;
-
-
 
 }

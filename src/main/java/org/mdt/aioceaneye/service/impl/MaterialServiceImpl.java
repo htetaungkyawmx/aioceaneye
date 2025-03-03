@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mdt.aioceaneye.dto.material.MaterialDetailsInfo;
 import org.mdt.aioceaneye.dto.material.MaterialInfo;
-import org.mdt.aioceaneye.dto.material.MaterialLogDto;
 import org.mdt.aioceaneye.dto.material.MaterialRegisterForm;
-import org.mdt.aioceaneye.model.Drone;
 import org.mdt.aioceaneye.model.MaterialLog;
 import org.mdt.aioceaneye.model.MaterialLogPk;
 import org.mdt.aioceaneye.repository.DroneRepo;
@@ -70,7 +68,7 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public MaterialLog createMaterialLog(Drone drone, String materialSerialNo) {
+    public void createMaterialLog(String droneSerialNo, String materialSerialNo) {
         var logger = Logger.getLogger(MaterialLog.class.getName());
         if(!materialLogRepo.existsBySerialNumber(materialSerialNo)) {
             var material = materialRepo.findById(materialSerialNo).get();
@@ -80,13 +78,17 @@ public class MaterialServiceImpl implements MaterialService {
             materialLog.setMaterialLogPk(pk);
 
             materialLog.setMaterial(material);
-            materialLog.setDrone(drone);
+            materialLog.setUseDroneSerialNo(droneSerialNo);
             materialLog.getMaterialLogPk().setMaterialAt(LocalDateTime.now());
             materialLog.setEstimateRestTime(material.getLifetime());
             materialLog.setMaterialRestTime(material.getLifetime());
             logger.info("Material Log for : " + material.getSerialNumber() + " created successfully");
-            return materialLogRepo.save(materialLog);
+            materialLogRepo.save(materialLog);
         }
-        return null;
+    }
+
+    @Override
+    public List<MaterialInfo> getUnusedMaterialInfosByMaterialType(String materialType) {
+        return materialRepo.getUnusedMaterialInfosByMaterialType(materialType);
     }
 }

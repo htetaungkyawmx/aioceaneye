@@ -12,9 +12,10 @@ import java.util.List;
 public interface DroneRepo extends JpaRepository<Drone, Long> {
 
     @Query("""
-    select new org.mdt.aioceaneye.dto.drone.DroneInfo(d.serial_no, d.droneImg, m.modelNo, d.droneId, l.fc.serialNumber) from Drone d
+    select new org.mdt.aioceaneye.dto.drone.DroneInfo(d.serial_no, d.droneImg, m.modelNo, d.droneId, fc.serialNumber, gps.serialNumber) from Drone d
     join d.droneModel m on d.droneModel.modelNo = m.modelNo
-    join d.droneLoadout l on d.droneId = l.droneId
+    left join d.materials fc on fc.type.typeName = 'FC'
+    left join d.materials gps on gps.type.typeName = 'GPS'
 """)
     List<DroneInfo> getAllDroneInfos();
 }

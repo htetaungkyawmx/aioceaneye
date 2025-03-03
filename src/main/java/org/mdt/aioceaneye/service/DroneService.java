@@ -2,6 +2,7 @@ package org.mdt.aioceaneye.service;
 
 import org.mdt.aioceaneye.dto.drone.DroneInfo;
 import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
+import org.mdt.aioceaneye.model.Drone;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -14,6 +15,6 @@ public interface DroneService {
 
     List<DroneInfo> getAllDroneInfos();
 
-    ResponseEntity<String> equipMaterial(long droneId, String serialNo);
+    ResponseEntity<String> equipMaterial(Drone drone, String materialSerialNo);
 //    ResponseEntity<String> unequipMaterial(String serialNo);
 }
