@@ -10,7 +10,10 @@ public interface DroneService {
 
     ResponseEntity<String> registerDrone(DroneRegisterForm form);
 
-    List<DroneInfo> getAllDrones();
-
     DroneInfo getDroneById(long id);
+
+    List<DroneInfo> getAllDroneInfos();
+
+    ResponseEntity<String> equipMaterial(long droneId, String serialNo);
+//    ResponseEntity<String> unequipMaterial(String serialNo);
 }

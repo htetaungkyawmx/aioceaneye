@@ -27,7 +27,7 @@ public class DroneController {
 
     @GetMapping
     List<DroneInfo> getAllDrones() {
-        return droneService.getAllDrones();
+        return droneService.getAllDroneInfos();
     }
 
     @GetMapping("/{droneId}")
