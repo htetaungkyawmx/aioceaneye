@@ -12,9 +12,13 @@ public interface ShipsService {
 
     List<ShipInfo> getAllShipInfos();
 
-    ResponseEntity<String> deleteShip(long shipId);
+    List<ShipInfo> getShipInfosByCompanyId(int companyId);
 
-    ResponseEntity<String> updateShip(ShipRegisterForm form, long shipId);
+    ResponseEntity<String> deleteShip(int shipId);
 
-    ResponseEntity<String> setCompany(long coId, long shipId);
+    ResponseEntity<String> updateShip(ShipRegisterForm form, int shipId);
+
+    ResponseEntity<String> setCompany(int coId, int shipId);
+
+
 }

@@ -9,11 +9,17 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ShipRepo extends JpaRepository<Ship,Long> {
+public interface ShipRepo extends JpaRepository<Ship,Integer> {
 
     @Query("""
     select new org.mdt.aioceaneye.dto.ship.ShipInfo(s.shipId, s.shipLogo, s.shipName, s.shipCountry, s.shipImono, s.shipMmsi, s.shipCallSign, s.yield) 
     from Ship s
 """)
     List<ShipInfo> findAllShipInfos();
+
+    @Query("""
+    select new org.mdt.aioceaneye.dto.ship.ShipInfo(s.shipId, s.shipLogo, s.shipName, s.shipCountry, s.shipImono, s.shipMmsi, s.shipCallSign, s.yield) 
+    from Ship s where s.company.coId = :companyId
+""")
+    List<ShipInfo> findShipInfosByCompanyId(int companyId);
 }

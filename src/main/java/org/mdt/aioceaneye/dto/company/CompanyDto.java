@@ -8,34 +8,35 @@ public record CompanyDto(
         String coName,
         String coRegisterNo,
         String coRegisterFile,
-        String coCeoName,
+        String coCountry,
+        String coHomePage,
+        Date established_year,
         Integer coEmployees,
+        String coAddress,
         String coTel,
         String coFax,
-        String coAddress,
-        String coUserName,
+        String coCeoName,
         String coUserEmail,
         String coUserPhone,
-        String coCountry,
-        String coLogo,
-        Date established_year
+        String coLogo
+
 ) {
     public static Company toEntity(CompanyDto form) {
         return Company.builder()
                 .coName(form.coName)
                 .coRegisterNo(form.coRegisterNo)
                 .coRegisterFile(form.coRegisterFile)
-                .coCeoName(form.coCeoName)
+                .coCountry(form.coCountry)
+                .coHomePage(form.coHomePage)
+                .established_year(form.established_year)
                 .coEmployees(form.coEmployees)
+                .coAddress(form.coAddress)
                 .coTel(form.coTel)
                 .coFax(form.coFax)
-                .coAddress(form.coAddress)
-                .coUserName(form.coUserName)
+                .coCeoName(form.coCeoName)
                 .coUserEmail(form.coUserEmail)
                 .coUserPhone(form.coUserPhone)
-                .coCountry(form.coCountry)
                 .coLogo(form.coLogo)
-                .established_year(form.established_year)
                 .build();
     }
 
@@ -44,17 +45,17 @@ public record CompanyDto(
                 company.getCoName(),
                 company.getCoRegisterNo(),
                 company.getCoRegisterFile(),
-                company.getCoCeoName(),
+                company.getCoCountry(),
+                company.getCoHomePage(),
+                company.getEstablished_year(),
                 company.getCoEmployees(),
+                company.getCoAddress(),
                 company.getCoTel(),
                 company.getCoFax(),
-                company.getCoAddress(),
-                company.getCoUserName(),
+                company.getCoCeoName(),
                 company.getCoUserEmail(),
                 company.getCoUserPhone(),
-                company.getCoCountry(),
-                company.getCoLogo(),
-                company.getEstablished_year()
+                company.getCoLogo()
         );
     }
 }

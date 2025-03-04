@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -11,46 +12,32 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "ship_t")
+@Table(name = "ships_t")
 public class Ship extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long shipId;
-
+    private Integer shipId;
     private String shipName;
-
-    private String shipDescription;
-
-    private String shipCaptain;
-
-    private String ship1th;
-
-    private String ship2th;
-
-    private String ship3th;
-
     private String shipCallSign;
-
-    private String shipClass;
-
     private String shipCountry;
-
-    private String shipMmsi;
-
-    private String shipImono;
-
     private String shipOfficeNo;
-
-    private Double yield;
-
-    private Date buildYear;
-
-    private String shipLogo;
-
+    private String shipImono;
+    private String shipAddress;
+    private String shipMmsi;
     private String shipPhone;
-
     private String shipEmail;
+    private Double yield;
+    private LocalDate buildYear;
+    private String shipLogo;
+    private String shipCaptainName;
+    private String ship1thName;
+    private String ship2thName;
+    private String ship3thName;
+    private String shipCaptainEmail;
+    private String ship1thEmail;
+    private String ship2thEmail;
+    private String ship3thEmail;
 
     @ManyToOne
     private Company company;

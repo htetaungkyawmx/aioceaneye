@@ -14,22 +14,22 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "companies_t")
 public class Company extends AbstractEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long coId;
+    private Integer coId;
     private String coName;
     private String coCeoName;
     private String coRegisterNo;
     private String coTel;
     private String coFax;
     private String coAddress;
-    private String coUserName;
+    private String coHomePage;
     private String coUserEmail;
     private String coUserPhone;
     private String coCountry;
     private String coLogo;
     private Integer coEmployees;
-    private String homePage;
     private String coRegisterFile;
     private Date established_year;
 

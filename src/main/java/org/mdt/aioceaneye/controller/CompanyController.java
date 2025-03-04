@@ -2,17 +2,15 @@ package org.mdt.aioceaneye.controller;
 
 import org.mdt.aioceaneye.dto.company.CompanyDto;
 import org.mdt.aioceaneye.dto.company.CompanyInfo;
-import org.mdt.aioceaneye.model.Company;
 import org.mdt.aioceaneye.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/mdt/company")
+@RequestMapping("/aioceaneye/companies")
 public class CompanyController {
 
     @Autowired
@@ -20,7 +18,7 @@ public class CompanyController {
 
     @PostMapping
     public ResponseEntity<String> registerCompany(@RequestBody CompanyDto form) {
-       return companyService.register(form);
+       return companyService.registerCompany(form);
     }
 
     @GetMapping
@@ -29,17 +27,17 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}")
-    public CompanyDto getById(@PathVariable long id) { // Fixed int to long
+    public CompanyDto getById(@PathVariable int id) {
         return companyService.getCompanyDtoById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> update(@PathVariable long id, @RequestBody CompanyDto form) {
-       return companyService.update(id, form);
+    public ResponseEntity<String> update(@PathVariable int id, @RequestBody CompanyDto form) {
+       return companyService.updateCompany(id, form);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) {
-        return companyService.delete(id);
+    public ResponseEntity<String> delete(@PathVariable int id) {
+        return companyService.deleteCompany(id);
     }
 }
