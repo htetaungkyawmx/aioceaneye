@@ -1,54 +1,55 @@
 package org.mdt.aioceaneye.controller;
 
-import org.mdt.aioceaneye.dto.DroneDTO;
+import lombok.RequiredArgsConstructor;
+import org.mdt.aioceaneye.dto.drone.DroneInfo;
+import org.mdt.aioceaneye.dto.drone.DroneModelInfoCreateForm;
+import org.mdt.aioceaneye.dto.drone.DroneModelInfoDto;
+import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
 import org.mdt.aioceaneye.model.Drone;
+import org.mdt.aioceaneye.service.DroneModelInfoService;
 import org.mdt.aioceaneye.service.DroneService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/mdt/drone")
+@RequiredArgsConstructor
+@RequestMapping("/mdt/drones")
 public class DroneController {
 
-    @Autowired
-    private DroneService droneService;
+    private final DroneService droneService;
+    private final DroneModelInfoService droneModelInfoService;
 
     @PostMapping
-    public ResponseEntity<Drone> create(@RequestBody DroneDTO droneDTO) {````````````````
-        Drone createdDrone = droneService.save(droneDTO);
-        return new ResponseEntity<>(createdDrone, HttpStatus.CREATED);
+    ResponseEntity<String> registerDrone(@RequestBody DroneRegisterForm form) {
+        return droneService.registerDrone(form);
     }
 
     @GetMapping
-    public ResponseEntity<List<Drone>> getAll() {
-        List<Drone> drones = droneService.findAll();
-        return new ResponseEntity<>(drones, HttpStatus.OK);
+    List<DroneInfo> getAllDrones() {
+        return droneService.getAllDroneInfos();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Drone> getById(@PathVariable long id) { // Fixed int to long
-        return droneService.findById(id)
-                .map(drone -> new ResponseEntity<>(drone, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @GetMapping("/{droneId}")
+    DroneInfo getDroneById(@PathVariable("droneId") long droneId) {
+        return droneService.getDroneById(droneId);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Drone> update(@PathVariable long id, @RequestBody DroneDTO droneDTO) {
-        return droneService.update(id, droneDTO)
-                .map(updatedDrone -> new ResponseEntity<>(updatedDrone, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
+    @PostMapping("/models")
+    ResponseEntity<String> createModel(@RequestBody DroneModelInfoCreateForm form) {
+        return droneModelInfoService.createDroneModelInfo(form);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable long id) {
-        if (droneService.findById(id).isPresent()) { // Check if exists before deleting
-            droneService.delete(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    @GetMapping("/models/{modelNo}")
+    DroneModelInfoDto getDroneModelInfoByModelNo(@PathVariable String modelNo) {
+        return droneModelInfoService.getDroneModelInfoByModelNo(modelNo);
     }
+
+    @PutMapping("/models")
+    ResponseEntity<String> updateModel(@RequestBody DroneModelInfoDto form) {
+        return droneModelInfoService.updateDroneModelInfo(form);
+    }
+
 }

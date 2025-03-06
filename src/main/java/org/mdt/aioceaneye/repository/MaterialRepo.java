@@ -11,10 +11,15 @@ import java.util.List;
 public interface MaterialRepo extends JpaRepository<Material,String> {
 
     @Query("""
-    select new org.mdt.aioceaneye.dto.material.MaterialInfo(m.materialImg, m.model, m.serialNumber, m.manufacturer, m.useStatus, m.stockDate) from Material m
+    select new org.mdt.aioceaneye.dto.material.MaterialInfo(m.materialImg, m.model, m.serialNumber, m.manufacturer, m.useStatus, m.stockDate, m.lifetime, m.usageTime) from Material m
 """)
     List<MaterialInfo> getAllMaterialInfos();
 
-
     MaterialDetailsInfo getMaterialDetailsInfoBySerialNumber(String serialNumber);
+
+    @Query("""
+    select new org.mdt.aioceaneye.dto.material.MaterialInfo(m.materialImg, m.model, m.serialNumber, m.manufacturer, m.useStatus, m.stockDate, m.lifetime, m.usageTime) from Material m
+    where m.type.typeName = :materialType and m.useStatus = false
+""")
+    List<MaterialInfo> getUnusedMaterialInfosByMaterialType(String materialType);
 }

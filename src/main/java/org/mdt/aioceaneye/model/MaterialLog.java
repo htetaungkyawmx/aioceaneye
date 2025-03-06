@@ -8,9 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "materiallog_t")
-public class MaterialLog extends AbstractEntity {
+public class MaterialLog  {
 
     @EmbeddedId
     private MaterialLogPk materialLogPk;
@@ -19,17 +18,17 @@ public class MaterialLog extends AbstractEntity {
     @ManyToOne
     private Material material;
 
+    private String useDroneSerialNo;
+
     private int repairCount;
 
 //  Will connect to doc later
     private String docNo;
 
-    private int estimateRestTime;
+    private double estimateRestTime;
 
-    private int useTime;
+    private double useTime;
 
-    private int materialRestTime;
-
-
+    private double materialRestTime;
 
 }

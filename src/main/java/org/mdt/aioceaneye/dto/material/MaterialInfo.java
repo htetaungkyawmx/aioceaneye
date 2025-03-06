@@ -10,7 +10,9 @@ public record MaterialInfo(
         String serialNumber,
         String manufacturer,
         boolean useStatus,
-        Date stockDate
+        Date stockDate,
+        double lifeTime,
+        double useTime
 ) {
 
     public static MaterialInfo toDto(Material material) {
@@ -20,7 +22,9 @@ public record MaterialInfo(
                 material.getSerialNumber(),
                 material.getManufacturer(),
                 material.isUseStatus(),
-                material.getStockDate()
+                material.getStockDate(),
+                material.getLifetime(),
+                material.getUsageTime()
         );
     }
 }

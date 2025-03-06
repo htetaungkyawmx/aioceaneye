@@ -1,15 +1,20 @@
 package org.mdt.aioceaneye.service;
 
-import org.mdt.aioceaneye.dto.DroneDTO;
+import org.mdt.aioceaneye.dto.drone.DroneInfo;
+import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
 import org.mdt.aioceaneye.model.Drone;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DroneService {
-    Drone save(DroneDTO droneDTO);
-    Optional<Drone> update(long droneId, DroneDTO droneDTO);
-    List<Drone> findAll();
-    Optional<Drone> findById(long droneId);
-    void delete(long droneId);
+
+    ResponseEntity<String> registerDrone(DroneRegisterForm form);
+
+    DroneInfo getDroneById(long id);
+
+    List<DroneInfo> getAllDroneInfos();
+
+    ResponseEntity<String> equipMaterial(Drone drone, String materialSerialNo);
+//    ResponseEntity<String> unequipMaterial(String serialNo);
 }

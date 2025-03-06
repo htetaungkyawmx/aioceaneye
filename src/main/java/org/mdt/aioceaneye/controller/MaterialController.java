@@ -34,6 +34,11 @@ public class MaterialController {
         return materialService.getAllMaterialInfos();
     }
 
+    @GetMapping("/type")
+    public List<MaterialInfo> getUnusedMaterialInfosByMaterialType(@RequestBody String materialType) {
+        return materialService.getUnusedMaterialInfosByMaterialType(materialType);
+    }
+
     @GetMapping("/{serialNo}")
     public MaterialDetailsInfo getMaterialDetailsInfo(@PathVariable String serialNo) {
         return materialService.getMaterialDetailsInfo(serialNo);

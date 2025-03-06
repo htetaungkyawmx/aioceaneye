@@ -1,69 +1,75 @@
 package org.mdt.aioceaneye.service.impl;
 
-import org.mdt.aioceaneye.dto.DroneDTO;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.mdt.aioceaneye.dto.drone.DroneInfo;
+import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
 import org.mdt.aioceaneye.model.Drone;
+import org.mdt.aioceaneye.model.Material;
+import org.mdt.aioceaneye.repository.DroneModelRepo;
 import org.mdt.aioceaneye.repository.DroneRepo;
+import org.mdt.aioceaneye.repository.MaterialRepo;
 import org.mdt.aioceaneye.service.DroneService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mdt.aioceaneye.service.MaterialService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
 public class DroneServiceImpl implements DroneService {
 
-    @Autowired
-    private DroneRepo droneRepo;
+    private final DroneRepo droneRepo;
+    private final DroneModelRepo droneModelRepo;
+    private final MaterialRepo materialRepo;
+    private final MaterialService materialService;
 
+    // At the time of drone register, it will be equipped with the materials coming from the form with the list of serial numbers.
     @Override
-    public Drone save(DroneDTO droneDTO) {
-        Drone drone = Drone.builder()
-                .serial_no(droneDTO.getSerial_no())
-                .version_no(droneDTO.getVersion_no())
-                .modelName(droneDTO.getModelName())
-                .size(droneDTO.getSize())
-                .max_altitude(droneDTO.getMax_altitude())
-                .max_speed(droneDTO.getMax_speed())
-                .max_radius(droneDTO.getMax_radius())
-                .flight_time(droneDTO.getFlight_time())
-                .max_endurance(droneDTO.getMax_endurance())
-                .drone_img(droneDTO.getDrone_img())
-                .build();
-        return droneRepo.save(drone);
+    public ResponseEntity<String> registerDrone(DroneRegisterForm form) {
+        var drone = DroneRegisterForm.toEntity(form);
+        var model = droneModelRepo.findById(form.modelName()).get();
+        drone.setDroneModel(model);
+
+        form.materialSerialNos().forEach(sn -> equipMaterial(drone, sn));
+
+        droneRepo.save(drone);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Drone: " + drone.getSerial_no() + "  registered successfully");
     }
 
     @Override
-    public Optional<Drone> update(long droneId, DroneDTO droneDTO) {
-        return droneRepo.findById(droneId).map(existingDrone -> {
-            existingDrone.setSerial_no(droneDTO.getSerial_no());
-            existingDrone.setVersion_no(droneDTO.getVersion_no());
-            existingDrone.setModelName(droneDTO.getModelName());
-            existingDrone.setSize(droneDTO.getSize());
-            existingDrone.setMax_altitude(droneDTO.getMax_altitude());
-            existingDrone.setMax_speed(droneDTO.getMax_speed());
-            existingDrone.setMax_radius(droneDTO.getMax_radius());
-            existingDrone.setFlight_time(droneDTO.getFlight_time());
-            existingDrone.setMax_endurance(droneDTO.getMax_endurance());
-            existingDrone.setDrone_img(droneDTO.getDrone_img());
-            return droneRepo.save(existingDrone);
-        });
+    public DroneInfo getDroneById(long id) {
+        return null;
     }
 
     @Override
-    public List<Drone> findAll() {
-        return droneRepo.findAll();
+    public List<DroneInfo> getAllDroneInfos() {
+//        return droneRepo.findAll().stream().map(drone -> new DroneInfo(
+//                drone.getSerial_no(),
+//                drone.getDroneImg(),
+//                drone.getDroneModel().getModelNo(),
+//                drone.getDroneId(),
+//                drone.getMaterials().get("FC").getSerialNumber(),
+//                drone.getMaterials().get("GPS").getSerialNumber()
+//        )).toList();
+        return droneRepo.getAllDroneInfos();
     }
 
+    // when material is equipped to drone, it's materialLog table will be created
     @Override
-    public Optional<Drone> findById(long droneId) {
-        return droneRepo.findById(droneId);
-    }
-
-    @Override
-    public void delete(long droneId) {
-        if (droneRepo.existsById(droneId)) {
-            droneRepo.deleteById(droneId);
+    public ResponseEntity<String> equipMaterial(Drone drone, String materialSerialNo) {
+        if(materialSerialNo == null || !materialRepo.existsById(materialSerialNo)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid serial no");
         }
+        materialRepo.findById(materialSerialNo).ifPresent(material -> {
+            drone.equipMaterial(material);
+            material.setUseStatus(true);
+            materialService.createMaterialLog(drone.getSerial_no(), materialSerialNo);
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).body("Material: " + materialSerialNo + " equipped successfully");
     }
 }

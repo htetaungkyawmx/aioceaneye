@@ -1,56 +1,36 @@
 package org.mdt.aioceaneye.service.impl;
 
-import org.mdt.aioceaneye.dto.DroneKindDTO;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.mdt.aioceaneye.dto.drone.DroneKindCreateForm;
+import org.mdt.aioceaneye.dto.drone.DroneKindDto;
 import org.mdt.aioceaneye.model.DroneKind;
 import org.mdt.aioceaneye.repository.DroneKindRepo;
 import org.mdt.aioceaneye.service.DroneKindService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
 public class DroneKindServiceImpl implements DroneKindService {
 
-    @Autowired
-    private DroneKindRepo droneKindRepo;
+    private final DroneKindRepo droneKindRepo;
 
     @Override
-    public DroneKind save(DroneKindDTO droneKindDTO) {
-        DroneKind droneKind = DroneKind.builder()
-                .kind(droneKindDTO.getKind())
-                .characteristics(droneKindDTO.getCharacteristics())
-                .application(droneKindDTO.getApplication())
-                .build();
-        return droneKindRepo.save(droneKind);
+    public ResponseEntity<String> createDroneKind(DroneKindCreateForm form) {
+        DroneKind droneKind = DroneKindCreateForm.toEntity(form);
+        droneKindRepo.save(droneKind);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Drone Kind : " + droneKind.getKind() + " registered successfully");
     }
 
     @Override
-    public Optional<DroneKind> update(int kind_id, DroneKindDTO droneKindDTO) {
-        return droneKindRepo.findById(kind_id).map(existingDroneKind -> {
-            existingDroneKind.setKind(droneKindDTO.getKind());
-            existingDroneKind.setCharacteristics(droneKindDTO.getCharacteristics());
-            existingDroneKind.setApplication(droneKindDTO.getApplication());
-            return droneKindRepo.save(existingDroneKind);
-        });
-    }
-
-    @Override
-    public List<DroneKind> findAll() {
-        return droneKindRepo.findAll();
-    }
-
-    @Override
-    public Optional<DroneKind> findById(int kind_id) {
-        return droneKindRepo.findById(kind_id);
-    }
-
-    @Override
-    public void delete(int kind_id) {
-        if (droneKindRepo.existsById(kind_id)) {
-            droneKindRepo.deleteById(kind_id);
-        }
+    public List<DroneKindDto> getAllDroneKinds() {
+        return droneKindRepo.findAll().stream().map(DroneKindDto::toDto).collect(Collectors.toList());
     }
 }
 

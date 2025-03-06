@@ -18,4 +18,8 @@ public interface MaterialService {
     ResponseEntity<String> updateMaterial(MaterialRegisterForm form);
 
     ResponseEntity<String> deleteMaterial(String serialNo);
+
+    void createMaterialLog(String droneSerialNo, String materialSerialNo);
+
+    List<MaterialInfo> getUnusedMaterialInfosByMaterialType(String materialType);
 }
