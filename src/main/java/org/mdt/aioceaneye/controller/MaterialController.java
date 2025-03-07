@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/mdt/materials")
+@RequestMapping("/aioceaneye/materials")
 public class MaterialController {
 
     private final MaterialService materialService;
@@ -34,9 +34,9 @@ public class MaterialController {
         return materialService.getAllMaterialInfos();
     }
 
-    @GetMapping("/type")
-    public List<MaterialInfo> getUnusedMaterialInfosByMaterialType(@RequestBody String materialType) {
-        return materialService.getUnusedMaterialInfosByMaterialType(materialType);
+    @GetMapping("/type/{type}")
+    public List<MaterialInfo> getUnusedMaterialInfosByMaterialType(@PathVariable String type) {
+        return materialService.getUnusedMaterialInfosByMaterialType(type);
     }
 
     @GetMapping("/{serialNo}")

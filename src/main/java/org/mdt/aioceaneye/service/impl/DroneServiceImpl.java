@@ -2,6 +2,7 @@ package org.mdt.aioceaneye.service.impl;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.mdt.aioceaneye.dto.drone.DroneDetailsInfo;
 import org.mdt.aioceaneye.dto.drone.DroneInfo;
 import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
 import org.mdt.aioceaneye.model.Drone;
@@ -31,7 +32,13 @@ public class DroneServiceImpl implements DroneService {
     @Override
     public ResponseEntity<String> registerDrone(DroneRegisterForm form) {
         var drone = DroneRegisterForm.toEntity(form);
-        var model = droneModelRepo.findById(form.modelName()).get();
+        var ls = form.modelName().split("-");
+
+        if(!droneModelRepo.existsByModel(ls[0], ls[1])) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Model " + form.modelName() + " not found");
+        }
+
+        var model = droneModelRepo.findByModel(ls[0], ls[1]).get();
         drone.setDroneModel(model);
 
         form.materialSerialNos().forEach(sn -> equipMaterial(drone, sn));
@@ -41,20 +48,12 @@ public class DroneServiceImpl implements DroneService {
     }
 
     @Override
-    public DroneInfo getDroneById(long id) {
-        return null;
+    public DroneDetailsInfo getDroneById(long id) {
+        return droneRepo.getDroneDetailsInfoByDroneId(id);
     }
 
     @Override
     public List<DroneInfo> getAllDroneInfos() {
-//        return droneRepo.findAll().stream().map(drone -> new DroneInfo(
-//                drone.getSerial_no(),
-//                drone.getDroneImg(),
-//                drone.getDroneModel().getModelNo(),
-//                drone.getDroneId(),
-//                drone.getMaterials().get("FC").getSerialNumber(),
-//                drone.getMaterials().get("GPS").getSerialNumber()
-//        )).toList();
         return droneRepo.getAllDroneInfos();
     }
 
@@ -71,5 +70,10 @@ public class DroneServiceImpl implements DroneService {
         });
 
         return ResponseEntity.status(HttpStatus.OK).body("Material: " + materialSerialNo + " equipped successfully");
+    }
+
+    @Override
+    public ResponseEntity<String> unequipMaterial(String serialNo) {
+        return null;
     }
 }

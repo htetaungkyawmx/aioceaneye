@@ -21,7 +21,7 @@ public class Drone extends AbstractEntity {
     private String droneImg;
 
     @ManyToOne
-    @JoinColumn(name = "drone_model_no")
+    @JoinColumn(name = "drone_model_id")
     private DroneModel droneModel;
 
 

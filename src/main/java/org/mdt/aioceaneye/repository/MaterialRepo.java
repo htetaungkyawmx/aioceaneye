@@ -15,6 +15,7 @@ public interface MaterialRepo extends JpaRepository<Material,String> {
 """)
     List<MaterialInfo> getAllMaterialInfos();
 
+
     MaterialDetailsInfo getMaterialDetailsInfoBySerialNumber(String serialNumber);
 
     @Query("""
@@ -22,4 +23,7 @@ public interface MaterialRepo extends JpaRepository<Material,String> {
     where m.type.typeName = :materialType and m.useStatus = false
 """)
     List<MaterialInfo> getUnusedMaterialInfosByMaterialType(String materialType);
+
+
+    MaterialInfo getMaterialInfoBySerialNumber(String serialNumber);
 }
