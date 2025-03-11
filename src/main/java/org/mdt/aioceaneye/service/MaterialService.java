@@ -21,5 +21,9 @@ public interface MaterialService {
 
     void createMaterialLog(String droneSerialNo, String materialSerialNo);
 
+    // To get the list of unused materials by material type when drone register
     List<MaterialInfo> getUnusedMaterialInfosByMaterialType(String materialType);
+
+
+    List<MaterialInfo> getListOfMaterialsUsedByDrone(long droneId);
 }

@@ -49,4 +49,9 @@ public class MaterialController {
         return materialService.deleteMaterial(serialNo);
     }
 
+    @GetMapping("/drone/{droneId}")
+    public List<MaterialInfo> getListOfMaterialsUsedByDrone(@PathVariable long droneId) {
+        return materialService.getListOfMaterialsUsedByDrone(droneId);
+    }
+
 }

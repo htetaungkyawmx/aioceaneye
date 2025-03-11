@@ -6,6 +6,7 @@ import org.mdt.aioceaneye.model.Material;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Date;
 import java.util.List;
 
 public interface MaterialRepo extends JpaRepository<Material,String> {
@@ -25,5 +26,9 @@ public interface MaterialRepo extends JpaRepository<Material,String> {
     List<MaterialInfo> getUnusedMaterialInfosByMaterialType(String materialType);
 
 
+    @Query("""
+     select new org.mdt.aioceaneye.dto.material.MaterialInfo(m.materialImg, m.model, m.serialNumber, m.manufacturer, m.useStatus, m.stockDate, m.lifetime, m.usageTime) from Material m
+     where m.serialNumber = :serialNumber
+""")
     MaterialInfo getMaterialInfoBySerialNumber(String serialNumber);
 }
