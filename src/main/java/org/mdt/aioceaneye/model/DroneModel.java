@@ -15,6 +15,9 @@ import java.util.List;
 public class DroneModel extends AbstractEntity{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer modelId;
+    private String modelName;
     private String modelNo;
     private String manufacturer;
     private String size;
@@ -37,5 +40,9 @@ public class DroneModel extends AbstractEntity{
 
     public void addDrone(Drone drone) {
         droneList.add(drone);
+    }
+
+    public String getModel() {
+        return modelName + "-" + modelNo;
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/mdt/mechanics")
+@RequestMapping("/aioceaneye/mechanics")
 public class MechanicController {
 
     private final MechanicService mechanicService;

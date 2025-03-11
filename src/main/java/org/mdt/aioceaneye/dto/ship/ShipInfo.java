@@ -3,7 +3,7 @@ package org.mdt.aioceaneye.dto.ship;
 import org.mdt.aioceaneye.model.Ship;
 
 public record ShipInfo(
-        Long shipId,
+        int shipId,
         String shipLogo,
         String shipName,
         String shipCountry,

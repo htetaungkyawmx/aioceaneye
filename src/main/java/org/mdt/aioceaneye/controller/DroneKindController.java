@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/mdt/drone_kinds")
+@RequestMapping("/aioceaneye/drone_kinds")
 public class DroneKindController {
 
     private final DroneKindService droneKindService;

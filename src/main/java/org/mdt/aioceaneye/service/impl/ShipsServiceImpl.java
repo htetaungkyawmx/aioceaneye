@@ -35,7 +35,12 @@ public class ShipsServiceImpl implements ShipsService {
     }
 
     @Override
-    public ResponseEntity<String> deleteShip(long shipId) {
+    public List<ShipInfo> getShipInfosByCompanyId(int companyId) {
+        return shipRepo.findShipInfosByCompanyId(companyId);
+    }
+
+    @Override
+    public ResponseEntity<String> deleteShip(int shipId) {
         if(shipRepo.existsById(shipId)) {
             shipRepo.deleteById(shipId);
             return ResponseEntity.status(HttpStatus.OK).body("Ship: " + shipId + " deleted successfully");
@@ -44,7 +49,7 @@ public class ShipsServiceImpl implements ShipsService {
     }
 
     @Override
-    public ResponseEntity<String> updateShip(ShipRegisterForm form, long shipId) {
+    public ResponseEntity<String> updateShip(ShipRegisterForm form, int shipId) {
         if(shipRepo.existsById(shipId)) {
             var ship = shipRepo.findById(shipId).get();
             ship.setShipName(form.shipName());
@@ -64,7 +69,7 @@ public class ShipsServiceImpl implements ShipsService {
     }
 
     @Override
-    public ResponseEntity<String> setCompany(long coId, long shipId) {
+    public ResponseEntity<String> setCompany(int coId, int shipId) {
         if(!shipRepo.existsById(shipId)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ship: " + shipId + " not found");
         }

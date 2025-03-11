@@ -1,12 +1,8 @@
 package org.mdt.aioceaneye.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.mdt.aioceaneye.dto.drone.DroneInfo;
-import org.mdt.aioceaneye.dto.drone.DroneModelInfoCreateForm;
-import org.mdt.aioceaneye.dto.drone.DroneModelInfoDto;
-import org.mdt.aioceaneye.dto.drone.DroneRegisterForm;
-import org.mdt.aioceaneye.model.Drone;
-import org.mdt.aioceaneye.service.DroneModelInfoService;
+import org.mdt.aioceaneye.dto.drone.*;
+import org.mdt.aioceaneye.service.DroneModelService;
 import org.mdt.aioceaneye.service.DroneService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +11,11 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/mdt/drones")
+@RequestMapping("/aioceaneye/drones")
 public class DroneController {
 
     private final DroneService droneService;
-    private final DroneModelInfoService droneModelInfoService;
+    private final DroneModelService droneModelService;
 
     @PostMapping
     ResponseEntity<String> registerDrone(@RequestBody DroneRegisterForm form) {
@@ -32,24 +28,20 @@ public class DroneController {
     }
 
     @GetMapping("/{droneId}")
-    DroneInfo getDroneById(@PathVariable("droneId") long droneId) {
+    DroneDetailsInfo getDroneDetailsInfoById(@PathVariable("droneId") long droneId) {
         return droneService.getDroneById(droneId);
     }
 
 
     @PostMapping("/models")
-    ResponseEntity<String> createModel(@RequestBody DroneModelInfoCreateForm form) {
-        return droneModelInfoService.createDroneModelInfo(form);
+    ResponseEntity<String> createModel(@RequestBody DroneModelCreateForm form) {
+        return droneModelService.createDroneModel(form);
     }
 
-    @GetMapping("/models/{modelNo}")
-    DroneModelInfoDto getDroneModelInfoByModelNo(@PathVariable String modelNo) {
-        return droneModelInfoService.getDroneModelInfoByModelNo(modelNo);
+    @GetMapping("/models/{modelId}")
+    DroneModelInfoDto getDroneModelInfoByModelNo(@PathVariable int modelId) {
+        return droneModelService.getDroneModelInfoById(modelId);
     }
 
-    @PutMapping("/models")
-    ResponseEntity<String> updateModel(@RequestBody DroneModelInfoDto form) {
-        return droneModelInfoService.updateDroneModelInfo(form);
-    }
 
 }

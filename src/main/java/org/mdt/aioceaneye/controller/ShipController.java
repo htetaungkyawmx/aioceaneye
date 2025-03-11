@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/mdt/vessel")
+@RequestMapping("/aioceaneye/vessels")
 public class ShipController {
 
     private final ShipsService shipsService;
@@ -26,13 +26,18 @@ public class ShipController {
         return shipsService.getAllShipInfos();
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateShip(@RequestBody ShipRegisterForm form, @PathVariable Long shipId) {
+    @GetMapping("/company/{coId}")
+    public List<ShipInfo> getShipInfosByCompanyId(@PathVariable int coId) {
+        return shipsService.getShipInfosByCompanyId(coId);
+    }
+
+    @PutMapping("/{shipId}")
+    public ResponseEntity<String> updateShip(@RequestBody ShipRegisterForm form, @PathVariable int shipId) {
         return shipsService.updateShip(form, shipId);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteShip(@PathVariable Long shipId) {
+    @DeleteMapping("/{shipId}")
+    public ResponseEntity<String> deleteShip(@PathVariable int shipId) {
         return shipsService.deleteShip(shipId);
     }
 

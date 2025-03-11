@@ -11,10 +11,10 @@ import java.sql.Date;
 import java.util.List;
 
 @Repository
-public interface CompanyRepo extends JpaRepository<Company, Long> {
+public interface CompanyRepo extends JpaRepository<Company, Integer> {
 
     @Query("""
-    select new org.mdt.aioceaneye.dto.company.CompanyInfo(c.coName, c.coLogo, c.coRegisterNo, c.coCountry, c.coCeoName, c.coTel) from Company c
+    select new org.mdt.aioceaneye.dto.company.CompanyInfo(c.coId, c.coName, c.coLogo, c.coRegisterNo, c.coCountry, c.coCeoName, c.coTel) from Company c
 """)
     List<CompanyInfo> findAllCompanyInfos();
 
