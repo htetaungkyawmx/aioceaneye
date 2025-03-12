@@ -22,7 +22,7 @@ public interface DroneRepo extends JpaRepository<Drone, Long> {
 
     @Query("""
     select new org.mdt.aioceaneye.dto.drone.DroneDetailsInfo(d.droneImg, CONCAT(m.modelName, "-", m.modelNo), d.serial_no, d.droneId, m.manufacturer, m.kind.kind, m.size, m.weight, m.maxRadius, m.maxSpeed, m.flightTime, m.maxAltitude ) from Drone d
-    join d.droneModel m on d.droneModel.modelId = m.modelId
+    join d.droneModel m on d.droneModel.modelId = m.modelId where  d.droneId = :droneId
 """)
     DroneDetailsInfo getDroneDetailsInfoByDroneId(long droneId);
 }

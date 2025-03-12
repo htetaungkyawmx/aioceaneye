@@ -19,8 +19,9 @@ public interface PilotRepo extends JpaRepository<Pilot, String> {
     List<PilotInfo> getAllPilotInfos();
 
     @Query("""
-    select new org.mdt.aioceaneye.dto.pilot.PilotDetailInfo(p.pilotId, p.pilotName, p.pilotCerNo, p.pilotImg, w.flightNo, w.flightTimes, w.flightDistance,w.flightDay, w.fishingAmount) 
+    select new org.mdt.aioceaneye.dto.pilot.PilotDetailInfo(p.pilotId, p.pilotName, p.pilotCerNo, p.pilotImg, w.flightNo, w.flightTimes, w.flightDistance,w.flightDay, w.fishingAmount)
     from Pilot p join PilotWorking w on p.pilotId = w.pilotId
+    where p.pilotId = :pilotId
 """)
-    PilotDetailInfo getPilotDetailInfoById(String id);
+    PilotDetailInfo getPilotDetailInfoById(String pilotId);
 }

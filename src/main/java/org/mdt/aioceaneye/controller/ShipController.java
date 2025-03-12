@@ -1,8 +1,9 @@
 package org.mdt.aioceaneye.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.mdt.aioceaneye.dto.ship.ShipDetailsInfo;
 import org.mdt.aioceaneye.dto.ship.ShipInfo;
-import org.mdt.aioceaneye.dto.ship.ShipRegisterForm;
+import org.mdt.aioceaneye.dto.ship.ShipRegistrationForm;
 import org.mdt.aioceaneye.service.ShipsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class ShipController {
     private final ShipsService shipsService;
 
     @PostMapping
-    public ResponseEntity<String> registerShip(@RequestBody ShipRegisterForm form) {
+    public ResponseEntity<String> registerShip(@RequestBody ShipRegistrationForm form) {
         return shipsService.registerShip(form);
     }
 
@@ -26,13 +27,18 @@ public class ShipController {
         return shipsService.getAllShipInfos();
     }
 
+    @GetMapping("/{shipId}")
+    public ShipDetailsInfo  getShipDetailsById(@PathVariable int shipId) {
+        return shipsService.getShipDetailsById(shipId);
+    }
+
     @GetMapping("/company/{coId}")
     public List<ShipInfo> getShipInfosByCompanyId(@PathVariable int coId) {
         return shipsService.getShipInfosByCompanyId(coId);
     }
 
     @PutMapping("/{shipId}")
-    public ResponseEntity<String> updateShip(@RequestBody ShipRegisterForm form, @PathVariable int shipId) {
+    public ResponseEntity<String> updateShip(@RequestBody ShipRegistrationForm form, @PathVariable int shipId) {
         return shipsService.updateShip(form, shipId);
     }
 
