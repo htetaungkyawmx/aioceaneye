@@ -20,7 +20,7 @@ public class CompanyServiceImpl implements CompanyService {
     private CompanyRepo companyRepo;
 
     @Override
-    public ResponseEntity<String> register(CompanyDto form) {
+    public ResponseEntity<String> registerCompany(CompanyDto form) {
         Company company = CompanyDto.toEntity(form);
         companyRepo.save(company);
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -28,9 +28,9 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public ResponseEntity<String> update(long coId, CompanyDto form) {
-        if(companyRepo.existsById(coId)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Company Not found");
+    public ResponseEntity<String> updateCompany(int coId, CompanyDto form) {
+        if(!companyRepo.existsById(coId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Company with id: "+ coId+ " is not found");
         }
         var company = companyRepo.findById(coId).get();
         company.setCoName(form.coName());
@@ -41,7 +41,6 @@ public class CompanyServiceImpl implements CompanyService {
         company.setCoTel(form.coTel());
         company.setCoFax(form.coFax());
         company.setCoAddress(form.coAddress());
-        company.setCoUserName(form.coUserName());
         company.setCoUserEmail(form.coUserEmail());
         company.setCoUserPhone(form.coUserPhone());
         company.setCoCountry(form.coCountry());
@@ -58,17 +57,17 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyDto getCompanyDtoById(long id) {
+    public CompanyDto getCompanyDtoById(int id) {
         return companyRepo.findById(id).map(CompanyDto::toDto).orElse(null);
     }
 
     @Override
-    public ResponseEntity<String> delete(long coId) {
+    public ResponseEntity<String> deleteCompany(int coId) {
         if(companyRepo.existsById(coId)) {
             companyRepo.deleteById(coId);
-            return ResponseEntity.status(HttpStatus.OK).body("Company: " + coId + "deleted successfully");
+            return ResponseEntity.status(HttpStatus.OK).body("Company: " + coId + " deleted successfully");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Company Not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Company with id: "+ coId+ " is not found");
     }
 
 

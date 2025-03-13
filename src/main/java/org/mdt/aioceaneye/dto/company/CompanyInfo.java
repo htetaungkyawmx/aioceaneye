@@ -3,6 +3,7 @@ package org.mdt.aioceaneye.dto.company;
 import org.mdt.aioceaneye.model.Company;
 
 public record CompanyInfo(
+        int coId,
         String coName,
         String coLogo,
         String coRegisterNo,
@@ -13,6 +14,7 @@ public record CompanyInfo(
 
     public static CompanyInfo toDto(Company company) {
         return new CompanyInfo(
+                company.getCoId(),
                 company.getCoName(),
                 company.getCoLogo(),
                 company.getCoRegisterNo(),

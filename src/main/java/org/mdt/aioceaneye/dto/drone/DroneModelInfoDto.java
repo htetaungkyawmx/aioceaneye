@@ -3,7 +3,7 @@ package org.mdt.aioceaneye.dto.drone;
 import org.mdt.aioceaneye.model.DroneModel;
 
 public record DroneModelInfoDto(
-        String modelNo,
+        String model,
         String manufacturer,
         String size,
         double weight,
@@ -16,7 +16,7 @@ public record DroneModelInfoDto(
 
     public static DroneModelInfoDto toDto(DroneModel model) {
         return new DroneModelInfoDto(
-                model.getModelNo(),
+                model.getModel(),
                 model.getManufacturer(),
                 model.getSize(),
                 model.getWeight(),

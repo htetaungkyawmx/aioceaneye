@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/mdt/pilot")
+@RequestMapping("/aioceaneye/pilots")
 public class PilotController {
 
     private final PilotsService pilotsService;
