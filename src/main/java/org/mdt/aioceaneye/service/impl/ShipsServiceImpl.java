@@ -1,8 +1,9 @@
 package org.mdt.aioceaneye.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.mdt.aioceaneye.dto.ship.ShipDetailsInfo;
 import org.mdt.aioceaneye.dto.ship.ShipInfo;
-import org.mdt.aioceaneye.dto.ship.ShipRegisterForm;
+import org.mdt.aioceaneye.dto.ship.ShipRegistrationForm;
 import org.mdt.aioceaneye.repository.CompanyRepo;
 import org.mdt.aioceaneye.repository.ShipRepo;
 import org.mdt.aioceaneye.service.ShipsService;
@@ -20,9 +21,9 @@ public class ShipsServiceImpl implements ShipsService {
     private final CompanyRepo companyRepo;
 
     @Override
-    public ResponseEntity<String> registerShip(ShipRegisterForm form) {
+    public ResponseEntity<String> registerShip(ShipRegistrationForm form) {
         var company = companyRepo.findById(form.coId()).get();
-        var ship = ShipRegisterForm.toEntity(form);
+        var ship = ShipRegistrationForm.toEntity(form);
         ship.setCompany(company);
         shipRepo.save(ship);
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -32,6 +33,11 @@ public class ShipsServiceImpl implements ShipsService {
     @Override
     public List<ShipInfo> getAllShipInfos() {
         return shipRepo.findAllShipInfos();
+    }
+
+    @Override
+    public ShipDetailsInfo getShipDetailsById(int shipId) {
+        return shipRepo.findShipDetailsInfoByShipId(shipId);
     }
 
     @Override
@@ -49,7 +55,7 @@ public class ShipsServiceImpl implements ShipsService {
     }
 
     @Override
-    public ResponseEntity<String> updateShip(ShipRegisterForm form, int shipId) {
+    public ResponseEntity<String> updateShip(ShipRegistrationForm form, int shipId) {
         if(shipRepo.existsById(shipId)) {
             var ship = shipRepo.findById(shipId).get();
             ship.setShipName(form.shipName());

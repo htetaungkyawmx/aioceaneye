@@ -4,7 +4,7 @@ import org.mdt.aioceaneye.model.Ship;
 
 import java.time.LocalDate;
 
-public record ShipRegisterForm(
+public record ShipRegistrationForm(
         String shipName,
         String shipCallSign,
         int coId,
@@ -28,7 +28,7 @@ public record ShipRegisterForm(
         String mate3Email
 ) {
 
-    public static Ship toEntity(ShipRegisterForm form) {
+    public static Ship toEntity(ShipRegistrationForm form) {
         return Ship.builder()
                 .shipName(form.shipName)
                 .shipCallSign(form.shipCallSign)
